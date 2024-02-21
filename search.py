@@ -123,7 +123,7 @@ def teams_post(api_client, content):
     api_instance = client.MsApi(api_client)
 
     try:
-        api_response = api_instance.teams_post(body={'Content': content})
+        api_response = api_instance.teams_post(body={'body':{'content': content}})
 
     except ApiException as e:
         log.exception("Exception when calling MsApi->teams_post: %s\n" % e)
@@ -147,7 +147,7 @@ def main(sam_api_key, ms_tenant, ms_app_id, ms_client_secret,
     api_config.access_token = process_ms_authn(api_client, ms_tenant, 
                                                ms_app_id, ms_client_secret)
     log.info('Retrieved access token')
-    
+
     log.info('Process Teams post')
     api_config.host = config['ms_channel_url'].replace('team-id', ms_team_id).replace('channel_id', ms_channel_id)
     teams_post(api_client, search_results)

@@ -88,7 +88,6 @@ class ApiClient(object):
             header_params = self.sanitize_for_serialization(header_params)
             header_params = dict(self.parameters_to_tuples(header_params,
                                                            collection_formats))
-        
         # path parameters
         if path_params:
             path_params = self.sanitize_for_serialization(path_params)
@@ -123,7 +122,7 @@ class ApiClient(object):
 
         # request url
         url = self.configuration.host + resource_path
-
+        
         # perform request and return response
         response_data = self.request(
             method, url, query_params=query_params, headers=header_params,
