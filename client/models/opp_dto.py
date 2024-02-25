@@ -26,7 +26,7 @@ class OppDto(object):
                      'agency': 'fullParentPathName',
                      'posted_date': 'postedDate',
                      'type': 'type',
-                     'set_aside': 'typeOfSetAsideDescription',
+                     'set_aside': 'typeOfSetAside',
                      'due_date': 'responseDeadLine',
                      'naics': 'naicsCode',
                      'url': 'uiLink'}

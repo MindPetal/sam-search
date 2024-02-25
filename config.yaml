@@ -3,31 +3,169 @@
 sam_url: https://api.sam.gov/opportunities/v2/search
 from_days_back: 1
 naics:
-  #- code: 519190
-  #  desc: "All Other Information Services"
-  #- code: 518210
-  #  desc: "Data Processing, Hosting, and Related Services"
-  #- code: 541430
-  #  desc: "Graphic Design Services"
-  #- code: 541490
-  #  desc: "Other Specialized Design Services"
-  #- code: 541511
-  #  desc: "Custom Computer Programming Services"
-  #- code: 541512
-  #  desc: "Computer Systems Design Services"
-  #- code: 541519
-  #  desc: "Other Computer Related Services"
-  #- code: 541611
-  #  desc: "Administrative Management and General Management Consulting Services"
-  #- code: 541618
-  #  desc: "Other Management Consulting Services"
-  #- code: 541690
-  #  desc: "Other Scientific and Technical Consulting Services"
-  #- code: 541990
-  #  desc: "All Other Professional, Scientific, and Technical Services"
-  #- code: 921190
-  #  desc: "Other General Government Support"
+  - code: 519190
+    desc: "All Other Information Services"
+  - code: 518210
+    desc: "Data Processing, Hosting, and Related Services"
+  - code: 541430
+    desc: "Graphic Design Services"
+  - code: 541490
+    desc: "Other Specialized Design Services"
+  - code: 541511
+    desc: "Custom Computer Programming Services"
+  - code: 541512
+    desc: "Computer Systems Design Services"
+  - code: 541519
+    desc: "Other Computer Related Services"
+  - code: 541611
+    desc: "Administrative Management and General Management Consulting Services"
+  - code: 541618
+    desc: "Other Management Consulting Services"
+  - code: 541690
+    desc: "Other Scientific and Technical Consulting Services"
+  - code: 541990
+    desc: "All Other Professional, Scientific, and Technical Services"
+  - code: 921190
+    desc: "Other General Government Support"
   - code: 541715
     desc: "Research and Development in the Physical, Engineering, and Life Sciences (except Nanotechnology and Biotechnology)"
-ms_authn_url: https://login.microsoftonline.com/tenant/oauth2/v2.0/token
-ms_channel_url: https://graph.microsoft.com/v1.0/teams/team-id/channels/channel-id/messages
+set_asides:
+  - code: SBA
+    desc: "Total SB"
+  - code: SBP
+    desc: "Partial SB"
+  - code: 8A
+    desc: "8(a)"
+  - code: 8AN
+    desc: "8(a) Sole Source"
+  - code: HZC
+    desc: "HUBZone"
+  - code: HZS
+    desc: "HUBZone Sole Source"
+  - code: SDVOSBC
+    desc: "SDVOSB"
+  - code: SDVOSBS
+    desc: "SDVOSB Sole Source"
+  - code: WOSB
+    desc: "WOSB"
+  - code: WOSBSS
+    desc: "WOSB Sole Source"
+  - code: EDWOSB
+    desc: "EDWOSB"
+  - code: EDWOSBSS
+    desc: "EDWOSB Sole Source"
+  - code: LAS
+    desc: "Local Area"
+  - code: IEE
+    desc: "Interior IEE"
+  - code: ISBEE
+    desc: "Interior ISBEE"
+  - code: BICiv
+    desc: "IHS BICiv"
+  - code: VSA
+    desc: "Veteran-Owned SB"
+  - code: VSS
+    desc: "Veteran-Owned SB Sole Source"
+agencies:
+  - agency: "AGENCY FOR INTERNATIONAL DEVELOPMENT"
+    abbr: USAID
+  - agency: "DEFENSE ADVANCED RESEARCH PROJECTS AGENCY (DARPA)"
+    abbr: DARPA
+  - agency: "DEFENSE COUNTERINTELLIGENCE AND SECURITY AGENCY (DCSA)"
+    abbr: DCSA
+  - agency: "DEFENSE COUNTERINTELLIGENCE AND SECURITY AGENCY"
+    abbr: DCSA
+  - agency: "DEFENSE HEALTH AGENCY (DHA)"
+    abbr: DHA
+  - agency: "DEFENSE INFORMATION SYSTEMS AGENCY (DISA)"
+    abbr: DISA
+  - agency: "DEFENSE LOGISTICS AGENCY"
+    abbr: DLA
+  - agency: "DEFENSE LOGISTICS AGENCY (DLA)"
+    abbr: DLA
+  - agency: "DEPT OF THE AIR FORCE"
+    abbr: "Air Force"
+  - agency: "DEPT OF THE ARMY"
+    abbr: "Army"
+  - agency: "DEPT OF THE NAVY"
+    abbr: "Navy"
+  - agency: "DRUG ENFORCEMENT ADMINISTRATION"
+    abbr: DEA
+  - agency: "EDUCATION, DEPARTMENT OF"
+    abbr: "Education"
+  - agency: "ENERGY, DEPARTMENT OF"
+    abbr: "Energy"
+  - agency: "FARM PRODUCTION AND CONSERVATION BUSINESS CENTER"
+    abbr: FPAC  
+  - agency: "FEDERAL ACQUISITION SERVICE"
+    abbr: GSA
+  - agency: "FEDERAL BUREAU OF INVESTIGATION"
+    abbr: FBI
+  - agency: "FEDERAL EMERGENCY MANAGEMENT AGENCY"
+    abbr: FEMA
+  - agency: "FEDERAL ENERGY REGULATORY COMMISSION"
+    abbr: FERC
+  - agency: "FEDERAL HIGHWAY ADMINISTRATION"
+    abbr: FHWA
+  - agency: "HOMELAND SECURITY, DEPARTMENT OF"
+    abbr: DHS
+  - agency: "INDIAN HEALTH SERVICE"
+    abbr: IHS
+  - agency: "INTERNAL REVENUE SERVICE"
+    abbr: IRS
+  - agency: "NATIONAL AERONAUTICS AND SPACE ADMINISTRATION"
+    abbr: NASA
+  - agency: "NATIONAL ARCHIVES AND RECORDS ADMINISTRATION"
+    abbr: NARA
+  - agency: "NATIONAL GEOSPATIAL-INTELLIGENCE AGENCY (NGA)"
+    abbr: NGA
+  - agency: "NATIONAL HIGHWAY TRAFFIC SAFETY ADMINISTRATION"
+    abbr: NHTSA
+  - agency: "NATIONAL INSTITUTE OF STANDARDS AND TECHNOLOGY"
+    abbr: NIST
+  - agency: "NATIONAL INSTITUTES OF HEALTH"
+    abbr: NIH
+  - agency: "NATIONAL OCEANIC AND ATMOSPHERIC ADMINISTRATION"
+    abbr: NOAA
+  - agency: "NATIONAL TELECOMMUNICATIONS AND INFORMATION ADMINISTRATION"
+    abbr: NTIA
+  - agency: "OFFICE OF THE ASSISTANT SECRETARY FOR ADMINISTRATION AND MANAGEMENT"
+    abbr: "DOL OASAM"
+  - agency: "FEDERAL AVIATION ADMINISTRATION"
+    abbr: FAA
+  - agency: "SECURITIES AND EXCHANGE COMMISSION"
+    abbr: SEC
+  - agency: "STATE, DEPARTMENT OF"
+    abbr: "State Dept"
+  - agency: "U.S. COAST GUARD"
+    abbr: USCG
+  - agency: "US COAST GUARD"
+    abbr: USCG
+  - agency: "US PATENT AND TRADEMARK OFFICE"
+    abbr: USPTO
+  - agency: "UNITED STATES TRADE AND DEVELOPMENT AGENCY"
+    abbr: USTDA
+  - agency: "U.S. TRANSPORTATION COMMAND (USTRANSCOM)"
+    abbr: USTRANSCOM
+  - agency: "US TRANSPORTATION COMMAND (USTRANSCOM)"
+    abbr: USTRANSCOM
+  - agency: "VETERANS AFFAIRS, DEPARTMENT OF"
+    abbr: VA
+  - agency: "WASHINGTON HEADQUARTERS SERVICES (WHS)"
+    abbr: "DOD WHS"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
