@@ -144,7 +144,7 @@ def test_process_search_less_40(mocker):
               'set_asides': [{'code': 'SBA', 'desc': 'Total SB'}]}
 
     mocker.patch('search.search', return_value=raw_results)
-    assert formatted_results() = search.process_search(api_client, 'abcd', config)
+    assert formatted_results() == search.process_search(api_client, 'abcd', config)
 
 def test_teams_post(mocker):
     mock_teams_post = mocker.patch('search.client.MsApi.teams_post')

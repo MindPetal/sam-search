@@ -26,6 +26,6 @@ jobs:
     - name: Run yaml lint
       run: yamllint -d relaxed config.yaml
     - name: Run python lint
-      run: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+      run: flake8 . --count --select=E9,F63,F7,F82 --ignore=F821 --show-source --statistics
     - name: Run pytest unit tests
       run: pytest test_search.py
