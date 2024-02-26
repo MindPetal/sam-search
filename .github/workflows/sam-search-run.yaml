@@ -1,0 +1,26 @@
+# Install Python dependencies, run the search.
+
+name: SAM-Search-Run
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '* 13 * * *'
+
+permissions:
+  contents: read
+
+jobs:
+  sam-search-run:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: pip package install
+      run: |
+        pip install . --use-pep517
+        pip install yamllint
+    - name: Run search
+      env:
+        SAM_API_KEY: ${{ secrets.SAM_API_KEY }}
+        MS_URL: ${{ secrets.MS_URL }}
+      run: python3 search.py "$SAM_API_KEY" "$MS_URL"

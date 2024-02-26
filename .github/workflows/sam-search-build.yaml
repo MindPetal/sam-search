@@ -1,0 +1,31 @@
+# Install Python dependencies, lint, run tests.
+
+name: SAM-Search-Build
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [opened, edited, reopened, closed]
+    paths:
+      - config.yaml
+      - search.py
+      - test_search.py
+
+permissions:
+  contents: read
+
+jobs:
+  sam-search-build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: pip package install
+      run: |
+        pip install . --use-pep517
+        pip install flake8 pytest pytest-mock yamllint
+    - name: Run yaml lint
+      run: yamllint -d relaxed config.yaml
+    - name: Run python lint
+      run: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+    - name: Run pytest unit tests
+      run: pytest test_search.py
