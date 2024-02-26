@@ -83,7 +83,7 @@ def test_format_date_posted_date():
 def test_format_date_due_date():
     due_date = '2024-03-25T16:00:00-04:00'
 
-    assert '03/25/2024 - 04:00PM EDT' == search.format_date(posted_date)
+    assert '03/25/2024 - 04:00PM EDT' == search.format_date(due_date)
 
 def test_format_set_aside_yes():
     set_asides = [{'code': 'SBA', 'desc': 'Total SB'}]
@@ -118,7 +118,7 @@ def test_format_results():
                            {'agency': 'DEPT OF THE AIR FORCE', 'abbr': 'Air Force'}],
               'set_asides': [{'code': 'SBA', 'desc': 'Total SB'}]}
     
-    assert formatted_results() == search.format_results(raw_results, config, 2)
+    assert formatted_results == search.format_results(raw_results, config, 2)
 
 def test_process_search_less_40(mocker):
     raw_results = [{'title': 'Test title',
@@ -144,9 +144,9 @@ def test_process_search_less_40(mocker):
               'set_asides': [{'code': 'SBA', 'desc': 'Total SB'}]}
 
     mocker.patch('search.search', return_value=raw_results)
-    assert formatted_results() == search.process_search(api_client, 'abcd', config)
+    assert formatted_results == search.process_search(api_client, 'abcd', config)
 
 def test_teams_post(mocker):
     mock_teams_post = mocker.patch('search.client.MsApi.teams_post')
-    search.teams_post(api_client, formatted_results())
-    mock_teams_post.assert_called_once_with(body={'text': formatted_results()})
+    search.teams_post(api_client, formatted_results)
+    mock_teams_post.assert_called_once_with(body={'text': formatted_results})
