@@ -38,6 +38,27 @@ def search(api_client, api_key, from_date,
     
     return api_response.to_dict()['value']
 
+def format_agency(agency, agencies):
+    # Formats the agency name for display
+    sam_agency = agency.split('.')
+    agency_substr = ''
+    agency_display = ''
+
+    if len(sam_agency) > 1:
+        agency_substr = sam_agency[1]
+    else:
+        agency_substr = sam_agency[0]
+
+    agency_dict = next((name for name in agencies
+                        if agency_substr == name['agency']), None)
+        
+    if bool(agency_dict):
+        agency_display = agency_dict['abbr']
+    else:
+        agency_display = agency_substr
+
+    return agency_display
+
 def format_date(raw_date):
     # Format date/times to nice format
     formatted_date = None
@@ -52,10 +73,19 @@ def format_date(raw_date):
 
     return formatted_date
 
+def format_set_aside(set_aside, set_asides):
+    # Format set-aside type for display
+
+    if bool(set_aside):
+        set_aside = next((code for code in set_asides
+                          if set_aside == code['code']), None)['desc']
+
+    return set_aside
+
 def format_results(raw_results, config, total):
     # Format results string
     
-    result_string = (f'\n\n\n\n**TST {date.today().strftime("%A, %m/%d/%Y")}.**'
+    result_string = (f'\n\n\n\n**{date.today().strftime("%A, %m/%d/%Y")}.**'
                      + f' {total} new records. Displaying {raw_results[0]["index"]}'
                      + f' to {raw_results[-1]["index"]}.')
 
@@ -65,33 +95,12 @@ def format_results(raw_results, config, total):
                                        + '---------------------')
         result_string = result_string + f'\n\n\n**{result["index"]}. [{result["title"]}]({result["url"]})**'
 
-        sam_agency = result['agency'].split('.')
-        agency_substr = ''
-        agency_display = ''
-
-        if len(sam_agency) > 1:
-            agency_substr = sam_agency[1]
-        else:
-            agency_substr = sam_agency[0]
-
-        agency_dict = next((name for name in config['agencies']
-                            if agency_substr == name['agency']), None)
-        
-        if bool(agency_dict):
-            agency_display = agency_dict['abbr']
-        else:
-            agency_display = agency_substr
-
-        result_string = result_string + f'\n\n**Agency:** {agency_display}'
+        agency = format_agency(result["agency"], config['agencies'])
+        result_string = result_string + f'\n\n**Agency:** {agency}'
         result_string = (result_string + f'\n\n**Date:** {format_date(result["posted_date"])}'
                                        + f' | **Due:** {format_date(result["due_date"])}')
         
-        set_aside = result['set_aside']
-
-        if bool(set_aside):
-            set_aside = next((code for code in config['set_asides']
-                              if set_aside == code['code']), None)['desc']
-            
+        set_aside = format_set_aside(result['set_aside'], config['set_asides'])
         result_string = (result_string + f'\n\n**Type:** {result["type"]} | **Set Aside:** '
                                        + f'{set_aside} | **NAICS:** {result["naics"]}')
     
@@ -119,8 +128,9 @@ def process_search(api_client, sam_api_key, config):
     for result in raw_results:
         result['index'] = n
         n += 1
-
+    
     record_cnt = len(raw_results)
+    log.info(f'Total records: {record_cnt}')
 
     # Teams has a message limit of 28kb so need to divide into multiple lists
     if record_cnt > 40:
@@ -160,8 +170,8 @@ def main(sam_api_key, ms_webhook_url):
     log.info('Process Teams posts')
     api_config.host = ms_webhook_url
 
-    for result in search_results:
-        teams_post(api_client, result)
+    #for result in search_results:
+        #teams_post(api_client, result)
 
 
 """ Read in sam_api_key, ms_webhook_url.

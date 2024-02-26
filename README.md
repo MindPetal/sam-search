@@ -11,7 +11,7 @@ More info on setting up Teams webhooks and formatting messages:
 - https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook
 - https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/connectors-using
 
-Unfortunately the sam.gov API does not right now allow searching by a list of NAICS like the front-end sam.gov web page does, so this client is making a series of GET requests for each NAICS configured in config.yaml.
+Unfortunately the sam.gov API does not right now allow searching by a list of NAICS like the front-end sam.gov web page does, so this client is making a series of GET requests for each NAICS configured in config.yaml. MS Teams also restricts the size of posted messages, so search results with over 40 records will be broken into additional Teams messages.
 
 ## Instructions for local execution:
 
