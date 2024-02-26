@@ -173,8 +173,7 @@ def main(sam_api_key, ms_webhook_url):
     api_config.host = ms_webhook_url
 
     for result in search_results:
-        print(result)
-        #teams_post(api_client, result)
+        teams_post(api_client, result)
 
 
 """ Read in sam_api_key, ms_webhook_url.
