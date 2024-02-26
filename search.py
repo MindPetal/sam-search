@@ -67,7 +67,7 @@ def format_date(raw_date):
 
         if 'T' in raw_date:
             delta = datetime.timedelta(hours=-5)
-            timezone = datetime.timezone(delta, name="EST")
+            timezone = datetime.timezone(delta, name="America/New_York")
             date_obj = datetime.datetime.fromisoformat(raw_date).astimezone(timezone)
             formatted_date = date_obj.strftime('%m/%d/%Y - %I:%M%p %Z')
         else:
