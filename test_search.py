@@ -148,5 +148,5 @@ def test_process_search_less_40(mocker):
 
 def test_teams_post(mocker):
     mock_teams_post = mocker.patch('search.client.MsApi.teams_post')
-    search.teams_post(api_client, formatted_results())
+    search.teams_post(api_client, formatted_results)
     mock_teams_post.assert_called_once_with(body={'text': formatted_results})

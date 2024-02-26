@@ -3,7 +3,7 @@
     sam.gov opportunities API and post results to MS Teams. 
 """
 from __future__ import print_function
-from datetime import date, datetime, timedelta, timezone
+import datetime
 from itertools import zip_longest
 
 import json
@@ -66,10 +66,12 @@ def format_date(raw_date):
     if bool(raw_date):
 
         if 'T' in raw_date:
-            date_obj = datetime.fromisoformat(raw_date).astimezone()
+            delta = datetime.timedelta(hours=-5)
+            timezone = datetime.timezone(delta, name="EST")
+            date_obj = datetime.datetime.fromisoformat(raw_date).astimezone(timezone)
             formatted_date = date_obj.strftime('%m/%d/%Y - %I:%M%p %Z')
         else:
-            formatted_date = datetime.strptime(raw_date, '%Y-%m-%d').strftime('%m/%d/%Y')
+            formatted_date = datetime.datetime.strptime(raw_date, '%Y-%m-%d').strftime('%m/%d/%Y')
 
     return formatted_date
 
@@ -85,7 +87,7 @@ def format_set_aside(set_aside, set_asides):
 def format_results(raw_results, config, total):
     # Format results string
     
-    result_string = (f'\n\n\n\n**{date.today().strftime("%A, %m/%d/%Y")}.**'
+    result_string = (f'\n\n\n\n**{datetime.date.today().strftime("%A, %m/%d/%Y")}.**'
                      + f' {total} new records. Displaying {raw_results[0]["index"]}'
                      + f' to {raw_results[-1]["index"]}.')
 
@@ -112,8 +114,8 @@ def process_search(api_client, sam_api_key, config):
     formatted_results = []
     limit = 1000
     from_days_back = config['from_days_back']
-    from_date = (date.today() - timedelta(days=from_days_back)).strftime("%m/%d/%Y")
-    to_date = date.today().strftime("%m/%d/%Y")
+    from_date = (datetime.date.today() - datetime.timedelta(days=from_days_back)).strftime("%m/%d/%Y")
+    to_date = datetime.date.today().strftime("%m/%d/%Y")
 
     for naics in config['naics']:
         naics_result = search(api_client, sam_api_key, from_date,
@@ -170,7 +172,8 @@ def main(sam_api_key, ms_webhook_url):
     log.info('Process Teams posts')
     api_config.host = ms_webhook_url
 
-    #for result in search_results:
+    for result in search_results:
+        print(result)
         #teams_post(api_client, result)
 
 
