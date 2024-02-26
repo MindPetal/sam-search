@@ -24,14 +24,14 @@ def formatted_results():
             + '---------------------'
             + '\n\n\n**1. [Test title](https://sam.gov/opp/bc92c9b1d0944b11b05d719c4f5dc863/view)**'
             + '\n\n**Agency:** Air Force'
-            + '\n\n**Date:** 02/25/2024 | **Due:** 03/25/2024 - 04:00PM EDT'
+            + '\n\n**Date:** 02/25/2024 | **Due:** 03/25/2024 - 03:00PM EST'
             + '\n\n**Type:** Combined Synopsis/Solicitation | **Set Aside:** None | **NAICS:** 541511'
             + '\n\n\n--------------------------------------------'
             + '--------------------------------------------------'
             + '---------------------'
             + '\n\n\n**2. [Test title](https://sam.gov/opp/84bfc6e3413e487db821841c9ab4701c/view)**'
             + '\n\n**Agency:** Energy'
-            + '\n\n**Date:** 02/25/2024 | **Due:** 03/12/2024 - 11:59PM EDT'
+            + '\n\n**Date:** 02/25/2024 | **Due:** 03/12/2024 - 10:59PM EST'
             + '\n\n**Type:** Special Notice | **Set Aside:** Total SB | **NAICS:** 541511')
 
 def test_load_config(mocker):
@@ -83,7 +83,7 @@ def test_format_date_posted_date():
 def test_format_date_due_date():
     due_date = '2024-03-25T16:00:00-04:00'
 
-    assert '03/25/2024 - 04:00PM EDT' == search.format_date(due_date)
+    assert '03/25/2024 - 03:00PM EST' == search.format_date(due_date)
 
 def test_format_set_aside_yes():
     set_asides = [{'code': 'SBA', 'desc': 'Total SB'}]
