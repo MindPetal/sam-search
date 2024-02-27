@@ -22,6 +22,12 @@ Unfortunately the sam.gov API does not right now allow searching by a list of NA
 pip3 install . --use-pep517
 ```
 
+- Tests:
+
+```sh
+pytest test_search.py
+```
+
 - Execute: pass sam api key, ms teams webhook url:
 
 ```sh
