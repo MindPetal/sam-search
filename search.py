@@ -87,24 +87,18 @@ def format_set_aside(set_aside, set_asides):
 def format_results(raw_results, config, total):
     # Format results string
     
-    result_string = (f'\n\n\n\n**{date.today().strftime("%A, %m/%d/%Y")}.**'
-                     + f' {total} new records. Displaying {raw_results[0]["index"]}'
-                     + f' to {raw_results[-1]["index"]}.')
+    result_string = f'**{date.today().strftime("%A, %m/%d/%Y")}.** {total} new records. Displaying {raw_results[0]["index"]} to {raw_results[-1]["index"]}.'
 
     for result in raw_results:
-        result_string = (result_string + '\n\n\n--------------------------------------------'
-                                       + '--------------------------------------------------'
-                                       + '---------------------')
-        result_string = result_string + f'\n\n\n**{result["index"]}. [{result["title"]}]({result["url"]})**'
+        result_string += '\n\n-------------------------------------------------------------------------------------------------------------------'
+        result_string += f'\n\n**{result["index"]}. [{result["title"]}]({result["url"]})**'
 
         agency = format_agency(result["agency"], config['agencies'])
-        result_string = result_string + f'\n\n**Agency:** {agency}'
-        result_string = (result_string + f'\n\n**Date:** {format_date(result["posted_date"])}'
-                                       + f' | **Due:** {format_date(result["due_date"])}')
+        result_string += f'\n\n**Agency:** {agency}'
+        result_string += f'\n\n**Date:** {format_date(result["posted_date"])} | **Due:** {format_date(result["due_date"])}'
         
         set_aside = format_set_aside(result['set_aside'], config['set_asides'])
-        result_string = (result_string + f'\n\n**Type:** {result["type"]} | **Set Aside:** '
-                                       + f'{set_aside} | **NAICS:** {result["naics"]}')
+        result_string += f'\n\n**Type:** {result["type"]} | **Set Aside:** {set_aside} | **NAICS:** {result["naics"]}'
     
     return result_string
 
