@@ -1,5 +1,5 @@
 # SAM.gov opportunity search and post to MS Teams
-[![sam-search](https://github.com/MindPetalSoftwareSolutions/sam-search/actions/workflows/sam-search.yaml/badge.svg)](https://github.com/MindPetalSoftwareSolutions/sam-search/actions/workflows/sam-search.yaml)
+[![sam-search-build](https://github.com/MindPetalSoftwareSolutions/sam-search/actions/workflows/sam-search.yaml/badge.svg)](https://github.com/MindPetalSoftwareSolutions/sam-search/actions/workflows/sam-search-build.yaml)
 
 Simple Python client for the sam.gov opportunities API: https://open.gsa.gov/api/get-opportunities-public-api/. Right now it just supports searching by a list of NAICS codes and from-date, defaulting to a list of opps from the past day. Additional search params are available via the sam.gov API for future usage.
 
