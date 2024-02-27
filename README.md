@@ -3,9 +3,9 @@
 
 Simple Python client for the sam.gov opportunities API: https://open.gsa.gov/api/get-opportunities-public-api/. Right now it just supports searching by a list of NAICS codes and from-date, defaulting to a list of opps from the past day. Additional search params are available via the sam.gov API for future usage.
 
-An Actions workflow pulls search results for specified NAICS each day and posts to a designated MS Teams channel. Config data is stored in config.yaml. Users are responsible for obtaining and configuring as repo secrets:
-- Sam.gov API key from sam.gov, which is tied to a personal account, and expires every 90 days.
-- MS Teams webhook URL for your organization
+An Actions workflow pulls search results for specified NAICS each day and posts to a designated MS Teams channel. Config data is stored in config.yaml. Users are responsible for obtaining and configuring as actions repo secrets:
+- SAM_API_KEY: API key from sam.gov, which is tied to a personal account, and expires every 90 days.
+- MS_URL: MS Teams webhook URL for your organization.
 
 More info on setting up Teams webhooks and formatting messages:
 - https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook
