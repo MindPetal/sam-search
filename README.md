@@ -15,7 +15,7 @@ Unfortunately the sam.gov API does not right now allow searching by a list of NA
 
 ## Instructions for local execution:
 
-- Python 3.9+ required.
+- Python 3.12+ required.
 - Install:
 
 ```sh
