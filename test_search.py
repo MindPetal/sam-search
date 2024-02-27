@@ -1,6 +1,7 @@
 """
     Tests for search.py 
 """
+from datetime import date
 import sys
 import pytest
 from pytest_mock import mocker
@@ -14,25 +15,6 @@ def api_client():
     api_config.host = 'https://www.example.com'
 
     return client.ApiClient(api_config)
-
-@pytest.fixture
-def formatted_results():
-    return (f'\n\n\n\n**{date.today().strftime("%A, %m/%d/%Y")}.**'
-            + ' 2 new records. Displaying 1 to 2.'
-            + '\n\n\n--------------------------------------------'
-            + '--------------------------------------------------'
-            + '---------------------'
-            + '\n\n\n**1. [Test title](https://sam.gov/opp/bc92c9b1d0944b11b05d719c4f5dc863/view)**'
-            + '\n\n**Agency:** Air Force'
-            + '\n\n**Date:** 02/25/2024 | **Due:** 03/25/2024 - 04:00PM EDT'
-            + '\n\n**Type:** Combined Synopsis/Solicitation | **Set Aside:** None | **NAICS:** 541511'
-            + '\n\n\n--------------------------------------------'
-            + '--------------------------------------------------'
-            + '---------------------'
-            + '\n\n\n**2. [Test title](https://sam.gov/opp/84bfc6e3413e487db821841c9ab4701c/view)**'
-            + '\n\n**Agency:** Energy'
-            + '\n\n**Date:** 02/25/2024 | **Due:** 03/12/2024 - 11:59PM EDT'
-            + '\n\n**Type:** Special Notice | **Set Aside:** Total SB | **NAICS:** 541511')
 
 def test_load_config(mocker):
     mocker.patch('builtins.open', mocker.mock_open(read_data='foo'))
@@ -99,7 +81,7 @@ def test_format_results():
     raw_results = [{'title': 'Test title',
                     'agency': 'DEPT OF DEFENSE.DEPT OF THE AIR FORCE.AIR FORCE MATERIEL COMMAND.AIR FORCE SUSTAINMENT CENTER.FA8522  AFSC PZABB',
                     'posted_date': '2024-02-25',
-                    'type': 'Combined Synopsis/Solicitation',
+                    'type': 'Solicitation',
                     'set_aside': None,
                     'due_date': '2024-03-25T16:00:00-04:00',
                     'naics': '541511',
@@ -114,6 +96,17 @@ def test_format_results():
                     'naics': '541511',
                     'url': 'https://sam.gov/opp/84bfc6e3413e487db821841c9ab4701c/view',
                     'index': 2}]
+    formatted_results = (f'**{date.today().strftime("%A, %m/%d/%Y")}.** 2 new records. Displaying 1 to 2.'
+                         + '\n\n-------------------------------------------------------------------------------------------------------------------'
+                         + '\n\n**1. [Test title](https://sam.gov/opp/bc92c9b1d0944b11b05d719c4f5dc863/view)**'
+                         + '\n\n**Agency:** Air Force'
+                         + '\n\n**Date:** 02/25/2024 | **Due:** 03/25/2024 - 04:00PM EDT'
+                         + '\n\n**Type:** Solicitation | **Set Aside:** None | **NAICS:** 541511'
+                         + '\n\n-------------------------------------------------------------------------------------------------------------------'
+                         + '\n\n**2. [Test title](https://sam.gov/opp/84bfc6e3413e487db821841c9ab4701c/view)**'
+                         + '\n\n**Agency:** Energy'
+                         + '\n\n**Date:** 02/25/2024 | **Due:** 03/12/2024 - 11:59PM EDT'
+                         + '\n\n**Type:** Special Notice | **Set Aside:** Total SB | **NAICS:** 541511')
     config = {'agencies': [{'agency': 'ENERGY, DEPARTMENT OF', 'abbr': 'Energy'},
                            {'agency': 'DEPT OF THE AIR FORCE', 'abbr': 'Air Force'}],
               'set_asides': [{'code': 'SBA', 'desc': 'Total SB'}]}
@@ -124,7 +117,7 @@ def test_process_search_less_40(mocker):
     raw_results = [{'title': 'Test title',
                     'agency': 'DEPT OF DEFENSE.DEPT OF THE AIR FORCE.AIR FORCE MATERIEL COMMAND.AIR FORCE SUSTAINMENT CENTER.FA8522  AFSC PZABB',
                     'posted_date': '2024-02-25',
-                    'type': 'Combined Synopsis/Solicitation',
+                    'type': 'Solicitation',
                     'set_aside': None,
                     'due_date': '2024-03-25T16:00:00-04:00',
                     'naics': '541511',
@@ -137,6 +130,17 @@ def test_process_search_less_40(mocker):
                     'due_date': '2024-03-12T23:59:00-04:00',
                     'naics': '541511',
                     'url': 'https://sam.gov/opp/84bfc6e3413e487db821841c9ab4701c/view'}]
+    formatted_results = (f'**{date.today().strftime("%A, %m/%d/%Y")}.** 2 new records. Displaying 1 to 2.'
+                         + '\n\n-------------------------------------------------------------------------------------------------------------------'
+                         + '\n\n**1. [Test title](https://sam.gov/opp/bc92c9b1d0944b11b05d719c4f5dc863/view)**'
+                         + '\n\n**Agency:** Air Force'
+                         + '\n\n**Date:** 02/25/2024 | **Due:** 03/25/2024 - 04:00PM EDT'
+                         + '\n\n**Type:** Solicitation | **Set Aside:** None | **NAICS:** 541511'
+                         + '\n\n-------------------------------------------------------------------------------------------------------------------'
+                         + '\n\n**2. [Test title](https://sam.gov/opp/84bfc6e3413e487db821841c9ab4701c/view)**'
+                         + '\n\n**Agency:** Energy'
+                         + '\n\n**Date:** 02/25/2024 | **Due:** 03/12/2024 - 11:59PM EDT'
+                         + '\n\n**Type:** Special Notice | **Set Aside:** Total SB | **NAICS:** 541511')
     config = {'from_days_back': 1,
               'naics': [{'code': 541511}],
               'agencies': [{'agency': 'ENERGY, DEPARTMENT OF', 'abbr': 'Energy'},
@@ -144,9 +148,20 @@ def test_process_search_less_40(mocker):
               'set_asides': [{'code': 'SBA', 'desc': 'Total SB'}]}
 
     mocker.patch('search.search', return_value=raw_results)
-    assert formatted_results == search.process_search(api_client, 'abcd', config)
+    assert [formatted_results] == search.process_search(api_client, 'abcd', config)
 
 def test_teams_post(mocker):
+    formatted_results = (f'**{date.today().strftime("%A, %m/%d/%Y")}.** 2 new records. Displaying 1 to 2.'
+                         + '\n\n-------------------------------------------------------------------------------------------------------------------'
+                         + '\n\n**1. [Test title](https://sam.gov/opp/bc92c9b1d0944b11b05d719c4f5dc863/view)**'
+                         + '\n\n**Agency:** Air Force'
+                         + '\n\n**Date:** 02/25/2024 | **Due:** 03/25/2024 - 04:00PM EDT'
+                         + '\n\n**Type:** Solicitation | **Set Aside:** None | **NAICS:** 541511'
+                         + '\n\n-------------------------------------------------------------------------------------------------------------------'
+                         + '\n\n**2. [Test title](https://sam.gov/opp/84bfc6e3413e487db821841c9ab4701c/view)**'
+                         + '\n\n**Agency:** Energy'
+                         + '\n\n**Date:** 02/25/2024 | **Due:** 03/12/2024 - 11:59PM EDT'
+                         + '\n\n**Type:** Special Notice | **Set Aside:** Total SB | **NAICS:** 541511')
     mock_teams_post = mocker.patch('search.client.MsApi.teams_post')
     search.teams_post(api_client, formatted_results)
     mock_teams_post.assert_called_once_with(body={'text': formatted_results})
