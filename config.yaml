@@ -3,32 +3,32 @@
 sam_url: https://api.sam.gov/opportunities/v2/search
 from_days_back: 1
 naics:
-  - code: 519190
-    desc: "All Other Information Services"
-  - code: 518210
-    desc: "Data Processing, Hosting, and Related Services"
-  - code: 541430
-    desc: "Graphic Design Services"
-  - code: 541490
-    desc: "Other Specialized Design Services"
+  #- code: 519190
+  #  desc: "All Other Information Services"
+  #- code: 518210
+  #  desc: "Data Processing, Hosting, and Related Services"
+  #- code: 541430
+  #  desc: "Graphic Design Services"
+  #- code: 541490
+  #  desc: "Other Specialized Design Services"
   - code: 541511
     desc: "Custom Computer Programming Services"
-  - code: 541512
-    desc: "Computer Systems Design Services"
-  - code: 541519
-    desc: "Other Computer Related Services"
-  - code: 541611
-    desc: "Administrative Management and General Management Consulting Services"
-  - code: 541618
-    desc: "Other Management Consulting Services"
-  - code: 541690
-    desc: "Other Scientific and Technical Consulting Services"
-  - code: 541990
-    desc: "All Other Professional, Scientific, and Technical Services"
-  - code: 921190
-    desc: "Other General Government Support"
-  - code: 541715
-    desc: "Research and Development in the Physical, Engineering, and Life Sciences (except Nanotechnology and Biotechnology)"
+  #- code: 541512
+  #  desc: "Computer Systems Design Services"
+  #- code: 541519
+  #  desc: "Other Computer Related Services"
+  #- code: 541611
+  #  desc: "Administrative Management and General Management Consulting Services"
+  #- code: 541618
+  #  desc: "Other Management Consulting Services"
+  #- code: 541690
+  #  desc: "Other Scientific and Technical Consulting Services"
+  #- code: 541990
+  #  desc: "All Other Professional, Scientific, and Technical Services"
+  #- code: 921190
+  #  desc: "Other General Government Support"
+  #- code: 541715
+  #  desc: "Research and Development in the Physical, Engineering, and Life Sciences (except Nanotechnology and Biotechnology)"
 set_asides:
   - code: SBA
     desc: "Total SB"
