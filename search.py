@@ -166,8 +166,8 @@ def main(sam_api_key, ms_webhook_url):
     log.info('Process Teams posts')
     api_config.host = ms_webhook_url
 
-    #for result in search_results:
-    #    teams_post(api_client, result)
+    for result in search_results:
+        teams_post(api_client, result)
 
 
 """ Read in sam_api_key, ms_webhook_url.
