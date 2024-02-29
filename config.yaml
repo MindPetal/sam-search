@@ -83,6 +83,8 @@ agencies:
     abbr: DLA
   - agency: "DEFENSE LOGISTICS AGENCY (DLA)"
     abbr: DLA
+  - agency: "DEPARTMENTAL OFFICES"
+    abbr: Interior
   - agency: "DEPT OF THE AIR FORCE"
     abbr: "Air Force"
   - agency: "DEPT OF THE ARMY"
@@ -95,6 +97,8 @@ agencies:
     abbr: "Education"
   - agency: "ENERGY, DEPARTMENT OF"
     abbr: "Energy"
+  - agency: "ENVIRONMENTAL PROTECTION AGENCY"
+    abbr: EPA
   - agency: "FARM PRODUCTION AND CONSERVATION BUSINESS CENTER"
     abbr: FPAC
   - agency: "FEDERAL ACQUISITION SERVICE"
@@ -131,8 +135,12 @@ agencies:
     abbr: NTIA
   - agency: "OFFICE OF THE ASSISTANT SECRETARY FOR ADMINISTRATION AND MANAGEMENT"
     abbr: "DOL OASAM"
+  - agency: "OFFICE OF PROCUREMENT OPERATIONS"
+    abbr: "DHS OPO"
   - agency: "FEDERAL AVIATION ADMINISTRATION"
     abbr: FAA
+  - agency: "PUBLIC BUILDINGS SERVICE"
+    abbr: "GSA PBS"
   - agency: "SECURITIES AND EXCHANGE COMMISSION"
     abbr: SEC
   - agency: "STATE, DEPARTMENT OF"
