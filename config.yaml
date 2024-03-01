@@ -143,8 +143,12 @@ agencies:
     abbr: "GSA PBS"
   - agency: "SECURITIES AND EXCHANGE COMMISSION"
     abbr: SEC
+  - agency: "SMALL BUSINESS ADMINISTRATION"
+    abbr: SBA
   - agency: "STATE, DEPARTMENT OF"
     abbr: "State Dept"
+  - agency: "US CITIZENSHIP AND IMMIGRATION SERVICES"
+    abbr: USCIS
   - agency: "U.S. COAST GUARD"
     abbr: USCG
   - agency: "US COAST GUARD"
