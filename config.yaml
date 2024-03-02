@@ -69,6 +69,10 @@ set_asides:
 agencies:
   - agency: "AGENCY FOR INTERNATIONAL DEVELOPMENT"
     abbr: USAID
+  - agency: "CENTERS FOR DISEASE CONTROL AND PREVENTION"
+    abbr: CDC
+  - agency: "COMMERCE, DEPARTMENT OF"
+    abbr: Commerce
   - agency: "DEFENSE ADVANCED RESEARCH PROJECTS AGENCY (DARPA)"
     abbr: DARPA
   - agency: "DEFENSE COUNTERINTELLIGENCE AND SECURITY AGENCY (DCSA)"
@@ -83,8 +87,12 @@ agencies:
     abbr: DLA
   - agency: "DEFENSE LOGISTICS AGENCY (DLA)"
     abbr: DLA
+  - agency: "DEFENSE THREAT REDUCTION AGENCY (DTRA)"
+    abbr: DTRA
   - agency: "DEPARTMENTAL OFFICES"
     abbr: Interior
+  - agency: "FOOD AND DRUG ADMINISTRATION"
+    abbr: FDA
   - agency: "DEPT OF THE AIR FORCE"
     abbr: "Air Force"
   - agency: "DEPT OF THE ARMY"
@@ -131,6 +139,8 @@ agencies:
     abbr: NIH
   - agency: "NATIONAL OCEANIC AND ATMOSPHERIC ADMINISTRATION"
     abbr: NOAA
+  - agency: "NATIONAL PARK SERVICE"
+    abbr: NPS
   - agency: "NATIONAL TELECOMMUNICATIONS AND INFORMATION ADMINISTRATION"
     abbr: NTIA
   - agency: "OFFICE OF THE ASSISTANT SECRETARY FOR ADMINISTRATION AND MANAGEMENT"
