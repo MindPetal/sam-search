@@ -150,6 +150,17 @@ def test_process_search_less_40(mocker):
     mocker.patch('search.search', return_value=raw_results)
     assert [formatted_results] == search.process_search(api_client, 'abcd', config)
 
+def test_process_search_zero(mocker):
+    raw_results = []
+    config = {'from_days_back': 1,
+              'naics': [{'code': 541511}],
+              'agencies': [{'agency': 'ENERGY, DEPARTMENT OF', 'abbr': 'Energy'},
+                           {'agency': 'DEPT OF THE AIR FORCE', 'abbr': 'Air Force'}],
+              'set_asides': [{'code': 'SBA', 'desc': 'Total SB'}]}
+
+    mocker.patch('search.search', return_value=raw_results)
+    assert [] == search.process_search(api_client, 'abcd', config)
+
 def test_teams_post(mocker):
     formatted_results = (f'**{date.today().strftime("%A, %m/%d/%Y")}.** 2 new records. Displaying 1 to 2.'
                          + '\n\n-------------------------------------------------------------------------------------------------------------------'

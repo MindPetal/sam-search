@@ -136,7 +136,7 @@ def process_search(api_client, sam_api_key, config):
             results = [result for result in results 
                        if result is not None]
             formatted_results.append(format_results(results, config, record_cnt))
-    else:
+    elif 0 < record_cnt <= 40:
         formatted_results.append(format_results(raw_results, config, record_cnt))
 
     return formatted_results
