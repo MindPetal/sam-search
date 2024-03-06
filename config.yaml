@@ -71,6 +71,8 @@ agencies:
     abbr: USAID
   - agency: "AGRICULTURE, DEPARTMENT OF"
     abbr: USDA
+  - agency: "BUREAU OF ENGRAVING AND PRINTING"
+    abbr: "Treasury - BEP"
   - agency: "CENTERS FOR DISEASE CONTROL AND PREVENTION"
     abbr: CDC
   - agency: "COMMERCE, DEPARTMENT OF"
@@ -87,6 +89,8 @@ agencies:
     abbr: DHA
   - agency: "DEFENSE INFORMATION SYSTEMS AGENCY (DISA)"
     abbr: DISA
+  - agency: "DEFENSE INTELLIGENCE AGENCY"
+    abbr: DIA
   - agency: "DEFENSE LOGISTICS AGENCY"
     abbr: DLA
   - agency: "DEFENSE LOGISTICS AGENCY (DLA)"
@@ -125,10 +129,16 @@ agencies:
     abbr: FERC
   - agency: "FEDERAL HIGHWAY ADMINISTRATION"
     abbr: FHWA
+  - agency: "HEALTH RESOURCES AND SERVICES ADMINISTRATION"
+    abbr: HRSA
   - agency: "HOMELAND SECURITY, DEPARTMENT OF"
     abbr: DHS
+  - agency: "HOUSING AND URBAN DEVELOPMENT, DEPARTMENT OF"
+    abbr: HUD
   - agency: "INDIAN HEALTH SERVICE"
     abbr: IHS
+  - agency: "INTELLIGENCE ADVANCED RESEARCH PROJECTS ACTIVITY"
+    abbr: "DNI - IARPA"
   - agency: "INTERNAL REVENUE SERVICE"
     abbr: IRS
   - agency: "NATIONAL AERONAUTICS AND SPACE ADMINISTRATION"
@@ -151,6 +161,8 @@ agencies:
     abbr: NTIA
   - agency: "OFFICE OF ADMINISTRATIVE SERVICES"
     abbr: "GSA OAS"
+  - agency: "OFFICE OF ASSISTANT SECRETARY FOR PREPAREDNESS AND RESPONSE"
+    abbr: "HHS - ASPR"
   - agency: "OFFICE OF THE ASSISTANT SECRETARY FOR ADMINISTRATION AND MANAGEMENT"
     abbr: "DOL OASAM"
   - agency: "OFFICE OF PROCUREMENT OPERATIONS"
@@ -167,6 +179,8 @@ agencies:
     abbr: SSA
   - agency: "STATE, DEPARTMENT OF"
     abbr: "State Dept"
+  - agency: "US CENSUS BUREAU"
+    abbr: Census
   - agency: "US CITIZENSHIP AND IMMIGRATION SERVICES"
     abbr: USCIS
   - agency: "U.S. COAST GUARD"
