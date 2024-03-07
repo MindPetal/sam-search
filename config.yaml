@@ -67,14 +67,26 @@ set_asides:
   - code: VSS
     desc: "Veteran-Owned SB Sole Source"
 agencies:
+  - agency: "ADMINISTRATION FOR CHILDREN AND FAMILIES"
+    abbr: "HHS - ACF"
+  - agency: "AGRICULTURAL RESEARCH SERVICE"
+    abbr: "USDA - ARS"
   - agency: "AGENCY FOR INTERNATIONAL DEVELOPMENT"
     abbr: USAID
   - agency: "AGRICULTURE, DEPARTMENT OF"
     abbr: USDA
   - agency: "BUREAU OF ENGRAVING AND PRINTING"
     abbr: "Treasury - BEP"
+  - agency: "BUREAU OF INDIAN AFFAIRS"
+    abbr: "Interior - Indian Affairs"
+  - agency: "BUREAU OF INDUSTRY AND SECURITY"
+    abbr: "Commerce - BIS"
+  - agency: "BUREAU OF LAND MANAGEMENT"
+    abbr: "Interior - BLM"
   - agency: "CENTERS FOR DISEASE CONTROL AND PREVENTION"
     abbr: CDC
+  - agency: "CENTERS FOR MEDICARE AND MEDICAID SERVICES"
+    abbr: CMS
   - agency: "COMMERCE, DEPARTMENT OF"
     abbr: Commerce
   - agency: "DEFENSE ADVANCED RESEARCH PROJECTS AGENCY (DARPA)"
@@ -193,6 +205,8 @@ agencies:
     abbr: USPTO
   - agency: "UNITED STATES TRADE AND DEVELOPMENT AGENCY"
     abbr: USTDA
+  - agency: "US SPECIAL OPERATIONS COMMAND (USSOCOM)"
+    abbr: USSOCOM
   - agency: "U.S. TRANSPORTATION COMMAND (USTRANSCOM)"
     abbr: USTRANSCOM
   - agency: "US TRANSPORTATION COMMAND (USTRANSCOM)"
