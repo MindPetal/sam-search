@@ -83,6 +83,8 @@ agencies:
     abbr: "Commerce - BIS"
   - agency: "BUREAU OF LAND MANAGEMENT"
     abbr: "Interior - BLM"
+  - agency: "BUREAU OF RECLAMATION"
+    abbr: "Interior - Reclamation"
   - agency: "CENTERS FOR DISEASE CONTROL AND PREVENTION"
     abbr: CDC
   - agency: "CENTERS FOR MEDICARE AND MEDICAID SERVICES"
@@ -141,6 +143,8 @@ agencies:
     abbr: FERC
   - agency: "FEDERAL HIGHWAY ADMINISTRATION"
     abbr: FHWA
+  - agency: "GOVERNMENT ACCOUNTABILITY OFFICE"
+    abbr: GAO
   - agency: "HEALTH RESOURCES AND SERVICES ADMINISTRATION"
     abbr: HRSA
   - agency: "HOMELAND SECURITY, DEPARTMENT OF"
@@ -179,8 +183,12 @@ agencies:
     abbr: "DOL OASAM"
   - agency: "OFFICE OF PROCUREMENT OPERATIONS"
     abbr: "DHS OPO"
+  - agency: "OFFICES, BOARDS AND DIVISIONS"
+    abbr: "DOJ - OBD"
   - agency: "FEDERAL AVIATION ADMINISTRATION"
     abbr: FAA
+  - agency: "PENSION BENEFIT GUARANTY CORPORATION"
+    abbr: PBGC
   - agency: "PUBLIC BUILDINGS SERVICE"
     abbr: "GSA PBS"
   - agency: "SECURITIES AND EXCHANGE COMMISSION"
@@ -201,6 +209,10 @@ agencies:
     abbr: USCG
   - agency: "US GEOLOGICAL SURVEY"
     abbr: USGS
+  - agency: "US FISH AND WILDLIFE SERVICE"
+    abbr: "Interior - FWS"
+  - agency: "US IMMIGRATION AND CUSTOMS ENFORCEMENT"
+    abbr: ICE
   - agency: "US PATENT AND TRADEMARK OFFICE"
     abbr: USPTO
   - agency: "UNITED STATES TRADE AND DEVELOPMENT AGENCY"
