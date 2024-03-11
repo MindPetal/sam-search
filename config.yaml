@@ -69,6 +69,8 @@ set_asides:
 agencies:
   - agency: "ADMINISTRATION FOR CHILDREN AND FAMILIES"
     abbr: "HHS - ACF"
+  - agency: "ADMINISTRATIVE OFFICE OF THE US COURTS"
+    abbr: "AO US Courts"
   - agency: "AGRICULTURAL RESEARCH SERVICE"
     abbr: "USDA - ARS"
   - agency: "AGENCY FOR INTERNATIONAL DEVELOPMENT"
@@ -91,6 +93,8 @@ agencies:
     abbr: CMS
   - agency: "COMMERCE, DEPARTMENT OF"
     abbr: Commerce
+  - agency: "COMMODITY FUTURES TRADING COMMISSION"
+    abbr: CFTC
   - agency: "DEFENSE ADVANCED RESEARCH PROJECTS AGENCY (DARPA)"
     abbr: DARPA
   - agency: "DEFENSE ADVANCED RESEARCH PROJECTS AGENCY  (DARPA)"
@@ -111,8 +115,6 @@ agencies:
     abbr: DLA
   - agency: "DEFENSE THREAT REDUCTION AGENCY (DTRA)"
     abbr: DTRA
-  - agency: "DEPARTMENTAL OFFICES"
-    abbr: Interior
   - agency: "FOOD AND DRUG ADMINISTRATION"
     abbr: FDA
   - agency: "DEPT OF THE AIR FORCE"
@@ -155,6 +157,8 @@ agencies:
     abbr: IHS
   - agency: "INTELLIGENCE ADVANCED RESEARCH PROJECTS ACTIVITY"
     abbr: "DNI - IARPA"
+  - agency: "INTERIOR, DEPARTMENT OF THE"
+    abbr: Interior
   - agency: "INTERNAL REVENUE SERVICE"
     abbr: IRS
   - agency: "NATIONAL AERONAUTICS AND SPACE ADMINISTRATION"
@@ -199,6 +203,8 @@ agencies:
     abbr: SSA
   - agency: "STATE, DEPARTMENT OF"
     abbr: "State Dept"
+  - agency: "TREASURY, DEPARTMENT OF THE"
+    abbr: Treasury
   - agency: "US CENSUS BUREAU"
     abbr: Census
   - agency: "US CITIZENSHIP AND IMMIGRATION SERVICES"
