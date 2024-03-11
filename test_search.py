@@ -57,6 +57,12 @@ def test_format_agency_two_str_no_match():
 
     assert 'AGENCY2' == search.format_agency(agency, agencies)
 
+def test_format_agency_departmental_match():
+    agency = 'AGENCY1.DEPARTMENTAL OFFICES'
+    agencies = [{'agency': 'AGENCY1', 'abbr': 'ABBR'}]
+
+    assert 'ABBR' == search.format_agency(agency, agencies)
+
 def test_format_date_posted_date():
     posted_date = '2024-02-25'
 
