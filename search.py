@@ -47,7 +47,7 @@ def format_agency(agency, agencies):
 
     if len(sam_agency) > 1:
 
-        if sam_agency[1] == 'DEPARTMENTAL OFFICES':
+        if sam_agency[1] in ('DEPARTMENTAL OFFICES', 'OFFICE OF THE SECRETARY'):
             agency_substr = sam_agency[0]
         else:
             agency_substr = sam_agency[1]

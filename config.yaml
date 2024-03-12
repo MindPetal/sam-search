@@ -203,6 +203,8 @@ agencies:
     abbr: SSA
   - agency: "STATE, DEPARTMENT OF"
     abbr: "State Dept"
+  - agency: "TRANSPORTATION, DEPARTMENT OF"
+    abbr: Transportation
   - agency: "TREASURY, DEPARTMENT OF THE"
     abbr: Treasury
   - agency: "US CENSUS BUREAU"
