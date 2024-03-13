@@ -115,6 +115,8 @@ agencies:
     abbr: DLA
   - agency: "DEFENSE THREAT REDUCTION AGENCY (DTRA)"
     abbr: DTRA
+  - agency: "DEPT OF DEFENSE"
+    abbr: DOD
   - agency: "FOOD AND DRUG ADMINISTRATION"
     abbr: FDA
   - agency: "DEPT OF THE AIR FORCE"
@@ -145,6 +147,8 @@ agencies:
     abbr: FERC
   - agency: "FEDERAL HIGHWAY ADMINISTRATION"
     abbr: FHWA
+  - agency: "FOREST SERVICE"
+    abbr: "Forest Service"
   - agency: "GOVERNMENT ACCOUNTABILITY OFFICE"
     abbr: GAO
   - agency: "HEALTH RESOURCES AND SERVICES ADMINISTRATION"
@@ -161,6 +165,8 @@ agencies:
     abbr: Interior
   - agency: "INTERNAL REVENUE SERVICE"
     abbr: IRS
+  - agency: "MISSILE DEFENSE AGENCY (MDA)"
+    abbr: "DOD - MDA"
   - agency: "NATIONAL AERONAUTICS AND SPACE ADMINISTRATION"
     abbr: NASA
   - agency: "NATIONAL ARCHIVES AND RECORDS ADMINISTRATION"
@@ -180,13 +186,13 @@ agencies:
   - agency: "NATIONAL TELECOMMUNICATIONS AND INFORMATION ADMINISTRATION"
     abbr: NTIA
   - agency: "OFFICE OF ADMINISTRATIVE SERVICES"
-    abbr: "GSA OAS"
+    abbr: "GSA - OAS"
   - agency: "OFFICE OF ASSISTANT SECRETARY FOR PREPAREDNESS AND RESPONSE"
     abbr: "HHS - ASPR"
   - agency: "OFFICE OF THE ASSISTANT SECRETARY FOR ADMINISTRATION AND MANAGEMENT"
-    abbr: "DOL OASAM"
+    abbr: "DOL - OASAM"
   - agency: "OFFICE OF PROCUREMENT OPERATIONS"
-    abbr: "DHS OPO"
+    abbr: "DHS - OPO"
   - agency: "OFFICES, BOARDS AND DIVISIONS"
     abbr: "DOJ - OBD"
   - agency: "FEDERAL AVIATION ADMINISTRATION"
@@ -194,7 +200,7 @@ agencies:
   - agency: "PENSION BENEFIT GUARANTY CORPORATION"
     abbr: PBGC
   - agency: "PUBLIC BUILDINGS SERVICE"
-    abbr: "GSA PBS"
+    abbr: "GSA - PBS"
   - agency: "SECURITIES AND EXCHANGE COMMISSION"
     abbr: SEC
   - agency: "SMALL BUSINESS ADMINISTRATION"
@@ -234,7 +240,7 @@ agencies:
   - agency: "VETERANS AFFAIRS, DEPARTMENT OF"
     abbr: VA
   - agency: "WASHINGTON HEADQUARTERS SERVICES (WHS)"
-    abbr: "DOD WHS"
+    abbr: "DOD - WHS"
 
 
 
