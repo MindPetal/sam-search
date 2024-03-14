@@ -149,6 +149,8 @@ agencies:
     abbr: FHWA
   - agency: "FOREST SERVICE"
     abbr: "Forest Service"
+  - agency: "GENERAL SERVICES ADMINISTRATION"
+    abbr: GSA
   - agency: "GOVERNMENT ACCOUNTABILITY OFFICE"
     abbr: GAO
   - agency: "HEALTH RESOURCES AND SERVICES ADMINISTRATION"
