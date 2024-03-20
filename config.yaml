@@ -115,6 +115,8 @@ agencies:
     abbr: DLA
   - agency: "DEFENSE LOGISTICS AGENCY (DLA)"
     abbr: DLA
+  - agency: "DEFENSE MICROELECTRONICS ACTIVITY (DMEA)"
+    abbr: "DOD - DMEA"
   - agency: "DEFENSE THREAT REDUCTION AGENCY (DTRA)"
     abbr: DTRA
   - agency: "DEPT OF DEFENSE"
