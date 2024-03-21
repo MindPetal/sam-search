@@ -151,6 +151,8 @@ agencies:
     abbr: FERC
   - agency: "FEDERAL HIGHWAY ADMINISTRATION"
     abbr: FHWA
+  - agency: "FEDERAL TRANSIT ADMINISTRATION"
+    abbr: "Transportation - FTA"
   - agency: "FOREST SERVICE"
     abbr: "Forest Service"
   - agency: "GENERAL SERVICES ADMINISTRATION"
@@ -233,6 +235,8 @@ agencies:
     abbr: USCG
   - agency: "US COAST GUARD"
     abbr: USCG
+  - agency: "US CUSTOMS AND BORDER PROTECTION"
+    abbr: CBP
   - agency: "US GEOLOGICAL SURVEY"
     abbr: USGS
   - agency: "US FISH AND WILDLIFE SERVICE"
