@@ -81,6 +81,8 @@ agencies:
     abbr: "USDA - APHIS"
   - agency: "BUREAU OF ENGRAVING AND PRINTING"
     abbr: "Treasury - BEP"
+  - agency: "BUREAU OF THE FISCAL SERVICE"
+    abbr: "Treasury - Fiscal Service"
   - agency: "BUREAU OF INDIAN AFFAIRS"
     abbr: "Interior - Indian Affairs"
   - agency: "BUREAU OF INDUSTRY AND SECURITY"
@@ -97,6 +99,8 @@ agencies:
     abbr: Commerce
   - agency: "COMMODITY FUTURES TRADING COMMISSION"
     abbr: CFTC
+  - agency: "COURT SERVICES AND OFFENDER SUPERVISION AGENCY"
+    abbr: "DC - Court Services and Offender Supervision Agency"
   - agency: "DEFENSE ADVANCED RESEARCH PROJECTS AGENCY (DARPA)"
     abbr: DARPA
   - agency: "DEFENSE ADVANCED RESEARCH PROJECTS AGENCY  (DARPA)"
@@ -209,8 +213,12 @@ agencies:
     abbr: "DOJ - OBD"
   - agency: "FEDERAL AVIATION ADMINISTRATION"
     abbr: FAA
+  - agency: "LIBRARY OF CONGRESS"
+    abbr: "Library of Congress"
   - agency: "OFFICE OF THE ASSISTANT SECRETARY FOR ADMINISTRATION (ASA)"
     abbr: "HHS - ASA"
+  - agency: "OFFICE OF PERSONNEL MANAGEMENT"
+    abbr: OPM
   - agency: "PENSION BENEFIT GUARANTY CORPORATION"
     abbr: PBGC
   - agency: "PUBLIC BUILDINGS SERVICE"
