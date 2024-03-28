@@ -79,6 +79,8 @@ agencies:
     abbr: USDA
   - agency: "ANIMAL AND PLANT HEALTH INSPECTION SERVICE"
     abbr: "USDA - APHIS"
+  - agency: "ATF ACQUISITION AND PROPERTY MGMT DIV"
+    abbr: ATF
   - agency: "BUREAU OF ENGRAVING AND PRINTING"
     abbr: "Treasury - BEP"
   - agency: "BUREAU OF THE FISCAL SERVICE"
@@ -111,6 +113,8 @@ agencies:
     abbr: DCSA
   - agency: "DEFENSE HEALTH AGENCY (DHA)"
     abbr: DHA
+  - agency: "DEFENSE HUMAN RESOURCES ACTIVITY"
+    abbr: "DOD - DHRA"
   - agency: "DEFENSE INFORMATION SYSTEMS AGENCY (DISA)"
     abbr: DISA
   - agency: "DEFENSE INTELLIGENCE AGENCY"
