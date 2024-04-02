@@ -50,7 +50,8 @@ def format_agency(agency, agencies):
         if sam_agency[1] in ('DEPARTMENTAL OFFICES', 
                              'OFFICE OF THE SECRETARY',
                              'OFFICE OF THE COMPTROLLER OF THE CURRENCY',
-                             'IMMEDIATE OFFICE OF THE SECRETARY OF DEFENSE'):
+                             'IMMEDIATE OFFICE OF THE SECRETARY OF DEFENSE',
+                             'OFFICE OF INSPECTOR GENERAL'):
             agency_substr = sam_agency[0]
         else:
             agency_substr = sam_agency[1]

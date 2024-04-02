@@ -159,6 +159,8 @@ agencies:
     abbr: FERC
   - agency: "FEDERAL HIGHWAY ADMINISTRATION"
     abbr: FHWA
+  - agency: "FEDERAL PRISON SYSTEM / BUREAU OF PRISONS"
+    abbr: FBOP
   - agency: "FEDERAL TRANSIT ADMINISTRATION"
     abbr: "Transportation - FTA"
   - agency: "FOREST SERVICE"
@@ -235,6 +237,8 @@ agencies:
     abbr: SSA
   - agency: "STATE, DEPARTMENT OF"
     abbr: "State Dept"
+  - agency: "SUBSTANCE ABUSE AND MENTAL HEALTH SERVICES ADMINISTRATION"
+    abbr: SAMHSA
   - agency: "TRANSPORTATION, DEPARTMENT OF"
     abbr: Transportation
   - agency: "TREASURY, DEPARTMENT OF THE"
@@ -255,6 +259,8 @@ agencies:
     abbr: "Interior - FWS"
   - agency: "US IMMIGRATION AND CUSTOMS ENFORCEMENT"
     abbr: ICE
+  - agency: "US MARSHALS SERVICE"
+    abbr: "US Marshals"
   - agency: "US PATENT AND TRADEMARK OFFICE"
     abbr: USPTO
   - agency: "UNITED STATES TRADE AND DEVELOPMENT AGENCY"
