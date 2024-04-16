@@ -73,10 +73,14 @@ agencies:
     abbr: "AO US Courts"
   - agency: "AGRICULTURAL RESEARCH SERVICE"
     abbr: "USDA - ARS"
+  - agency: "AGENCY FOR HEALTHCARE RESEARCH AND QUALITY"
+    abbr: "HHS - AHRQ"
   - agency: "AGENCY FOR INTERNATIONAL DEVELOPMENT"
     abbr: USAID
   - agency: "AGRICULTURE, DEPARTMENT OF"
     abbr: USDA
+  - agency: "AMERICAN BATTLE MONUMENTS COMMISSION"
+    abbr: ABMC
   - agency: "ANIMAL AND PLANT HEALTH INSPECTION SERVICE"
     abbr: "USDA - APHIS"
   - agency: "ATF ACQUISITION AND PROPERTY MGMT DIV"
@@ -91,6 +95,8 @@ agencies:
     abbr: "Commerce - BIS"
   - agency: "BUREAU OF LAND MANAGEMENT"
     abbr: "Interior - BLM"
+  - agency: "BUREAU OF OCEAN ENERGY MANAGEMENT"
+    abbr: "DOI - BOEM"
   - agency: "BUREAU OF RECLAMATION"
     abbr: "Interior - Reclamation"
   - agency: "CENTERS FOR DISEASE CONTROL AND PREVENTION"
@@ -111,6 +117,8 @@ agencies:
     abbr: DCSA
   - agency: "DEFENSE COUNTERINTELLIGENCE AND SECURITY AGENCY"
     abbr: DCSA
+  - agency: "DEFENSE FINANCE AND ACCOUNTING SERVICE (DFAS)"
+    abbr: "DOD - DFAS"
   - agency: "DEFENSE HEALTH AGENCY (DHA)"
     abbr: DHA
   - agency: "DEFENSE HUMAN RESOURCES ACTIVITY"
@@ -145,6 +153,8 @@ agencies:
     abbr: "Energy"
   - agency: "ENVIRONMENTAL PROTECTION AGENCY"
     abbr: EPA
+  - agency: "EXECUTIVE OFFICE OF THE PRESIDENT"
+    abbr: "Executive Office of the President"
   - agency: "FARM PRODUCTION AND CONSERVATION BUSINESS CENTER"
     abbr: FPAC
   - agency: "FEDERAL ACQUISITION SERVICE"
@@ -159,6 +169,8 @@ agencies:
     abbr: FERC
   - agency: "FEDERAL HIGHWAY ADMINISTRATION"
     abbr: FHWA
+  - agency: "FEDERAL MOTOR CARRIER SAFETY ADMINISTRATION"
+    abbr: "DOT - FMCSA"
   - agency: "FEDERAL PRISON SYSTEM / BUREAU OF PRISONS"
     abbr: FBOP
   - agency: "FEDERAL TRANSIT ADMINISTRATION"
@@ -183,6 +195,8 @@ agencies:
     abbr: Interior
   - agency: "INTERNAL REVENUE SERVICE"
     abbr: IRS
+  - agency: "MERIT SYSTEMS PROTECTION BOARD"
+    abbr: "Merit Systems Protection Board"
   - agency: "MISSILE DEFENSE AGENCY (MDA)"
     abbr: "DOD - MDA"
   - agency: "NATIONAL AERONAUTICS AND SPACE ADMINISTRATION"
@@ -227,6 +241,8 @@ agencies:
     abbr: OPM
   - agency: "PENSION BENEFIT GUARANTY CORPORATION"
     abbr: PBGC
+  - agency: "POSTAL SERVICE"
+    abbr: USPS
   - agency: "PUBLIC BUILDINGS SERVICE"
     abbr: "GSA - PBS"
   - agency: "SECURITIES AND EXCHANGE COMMISSION"
@@ -241,8 +257,12 @@ agencies:
     abbr: SAMHSA
   - agency: "TRANSPORTATION, DEPARTMENT OF"
     abbr: Transportation
+  - agency: "TRANSPORTATION SECURITY ADMINISTRATION"
+    abbr: TSA
   - agency: "TREASURY, DEPARTMENT OF THE"
     abbr: Treasury
+  - agency: "UNITED STATES INTERNATIONAL DEVELOPMENT FINANCE CORPORATION"
+    abbr: DFC
   - agency: "US CENSUS BUREAU"
     abbr: Census
   - agency: "US CITIZENSHIP AND IMMIGRATION SERVICES"
@@ -253,6 +273,8 @@ agencies:
     abbr: USCG
   - agency: "US CUSTOMS AND BORDER PROTECTION"
     abbr: CBP
+  - agency: "USDA, DEPARTMENTAL ADMINISTRATION"
+    abbr: USDA
   - agency: "US GEOLOGICAL SURVEY"
     abbr: USGS
   - agency: "US FISH AND WILDLIFE SERVICE"
