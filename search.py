@@ -51,7 +51,8 @@ def format_agency(agency, agencies):
                              'OFFICE OF THE SECRETARY',
                              'OFFICE OF THE COMPTROLLER OF THE CURRENCY',
                              'IMMEDIATE OFFICE OF THE SECRETARY OF DEFENSE',
-                             'OFFICE OF INSPECTOR GENERAL'):
+                             'OFFICE OF INSPECTOR GENERAL',
+                             'OFFICE OF THE INSPECTOR GENERAL'):
             agency_substr = sam_agency[0]
         else:
             agency_substr = sam_agency[1]
