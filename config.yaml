@@ -99,6 +99,8 @@ agencies:
     abbr: "DOI - BOEM"
   - agency: "BUREAU OF RECLAMATION"
     abbr: "Interior - Reclamation"
+  - agency: "BUREAU OF SAFETY AND ENVIRONMENTAL ENFORCEMENT"
+    abbr: "Interior - BSEE"
   - agency: "CENTERS FOR DISEASE CONTROL AND PREVENTION"
     abbr: CDC
   - agency: "CENTERS FOR MEDICARE AND MEDICAID SERVICES"
@@ -163,6 +165,8 @@ agencies:
     abbr: FBI
   - agency: "FEDERAL COMMUNICATIONS COMMISSION"
     abbr: FCC
+  - agency: "FEDERAL DEPOSIT INSURANCE CORPORATION"
+    abbr: FDIC
   - agency: "FEDERAL EMERGENCY MANAGEMENT AGENCY"
     abbr: FEMA
   - agency: "FEDERAL ENERGY REGULATORY COMMISSION"
@@ -177,16 +181,22 @@ agencies:
     abbr: "Transportation - FTA"
   - agency: "FOREST SERVICE"
     abbr: "Forest Service"
+  - agency: "GAO, EXCEPT COMPTROLLER GENERAL"
+    abbr: GAO
   - agency: "GENERAL SERVICES ADMINISTRATION"
     abbr: GSA
   - agency: "GOVERNMENT ACCOUNTABILITY OFFICE"
     abbr: GAO
+  - agency: "HEALTH AND HUMAN SERVICES, DEPARTMENT OF"
+    abbr: HHS
   - agency: "HEALTH RESOURCES AND SERVICES ADMINISTRATION"
     abbr: HRSA
   - agency: "HOMELAND SECURITY, DEPARTMENT OF"
     abbr: DHS
   - agency: "HOUSING AND URBAN DEVELOPMENT, DEPARTMENT OF"
     abbr: HUD
+  - agency: "IMMED OFFICE OF THE SECRETARY OF HEALTH AND HUMAN SERVICES"
+    abbr: HHS
   - agency: "INDIAN HEALTH SERVICE"
     abbr: IHS
   - agency: "INTELLIGENCE ADVANCED RESEARCH PROJECTS ACTIVITY"
