@@ -103,7 +103,11 @@ def format_results(raw_results, config, total):
         result_string += '\n\n-------------------------------------------------------------------------------------------------------------------'
         result_string += f'\n\n**{result["index"]}. [{result["title"]}]({result["url"]})**'
 
-        agency = format_agency(result["agency"], config['agencies'])
+        agency = None
+
+        if bool(result["agency"]):
+            agency = format_agency(result["agency"], config['agencies'])
+            
         result_string += f'\n\n**Agency:** {agency}'
         result_string += f'\n\n**Date:** {format_date(result["posted_date"])} | **Due:** {format_date(result["due_date"])}'
         
