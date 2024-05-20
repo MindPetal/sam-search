@@ -133,6 +133,8 @@ agencies:
     abbr: DLA
   - agency: "DEFENSE LOGISTICS AGENCY (DLA)"
     abbr: DLA
+  - agency: "DEFENSE MEDIA ACTIVITY (DMA)"
+    abbr: "DOD - DMA"
   - agency: "DEFENSE MICROELECTRONICS ACTIVITY (DMEA)"
     abbr: "DOD - DMEA"
   - agency: "DEFENSE THREAT REDUCTION AGENCY (DTRA)"
@@ -205,6 +207,8 @@ agencies:
     abbr: Interior
   - agency: "INTERNAL REVENUE SERVICE"
     abbr: IRS
+  - agency: "INTERNATIONAL TRADE COMMISSION"
+    abbr: "International Trade Commission"
   - agency: "MERIT SYSTEMS PROTECTION BOARD"
     abbr: "Merit Systems Protection Board"
   - agency: "MISSILE DEFENSE AGENCY (MDA)"
@@ -255,6 +259,8 @@ agencies:
     abbr: USPS
   - agency: "PUBLIC BUILDINGS SERVICE"
     abbr: "GSA - PBS"
+  - agency: "RURAL HOUSING SERVICE"
+    abbr: "USDA - Rural Housing"
   - agency: "SECURITIES AND EXCHANGE COMMISSION"
     abbr: SEC
   - agency: "SMALL BUSINESS ADMINISTRATION"
