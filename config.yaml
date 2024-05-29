@@ -179,6 +179,8 @@ agencies:
     abbr: "DOT - FMCSA"
   - agency: "FEDERAL PRISON SYSTEM / BUREAU OF PRISONS"
     abbr: FBOP
+  - agency: "FEDERAL RAILROAD ADMINISTRATION"
+    abbr: "DOT - FRA"
   - agency: "FEDERAL TRANSIT ADMINISTRATION"
     abbr: "Transportation - FTA"
   - agency: "FOREST SERVICE"
@@ -249,6 +251,8 @@ agencies:
     abbr: FAA
   - agency: "LIBRARY OF CONGRESS"
     abbr: "Library of Congress"
+  - agency: "MILLENNIUM CHALLENGE CORPORATION"
+    abbr: "Millenium Challenge Corp"
   - agency: "OFFICE OF THE ASSISTANT SECRETARY FOR ADMINISTRATION (ASA)"
     abbr: "HHS - ASA"
   - agency: "OFFICE OF PERSONNEL MANAGEMENT"
@@ -293,6 +297,8 @@ agencies:
     abbr: USDA
   - agency: "US GEOLOGICAL SURVEY"
     abbr: USGS
+  - agency: "UNITED STATES GOVERNMENT PUBLISHING OFFICE"
+    abbr: GPO
   - agency: "US FISH AND WILDLIFE SERVICE"
     abbr: "Interior - FWS"
   - agency: "US IMMIGRATION AND CUSTOMS ENFORCEMENT"
