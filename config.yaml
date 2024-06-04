@@ -183,6 +183,8 @@ agencies:
     abbr: "DOT - FRA"
   - agency: "FEDERAL TRANSIT ADMINISTRATION"
     abbr: "Transportation - FTA"
+  - agency: "FOOD SAFETY AND INSPECTION SERVICE"
+    abbr: "USDA - FSIS"
   - agency: "FOREST SERVICE"
     abbr: "Forest Service"
   - agency: "GAO, EXCEPT COMPTROLLER GENERAL"
