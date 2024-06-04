@@ -97,7 +97,10 @@ def format_set_aside(set_aside, set_asides):
 def format_results(raw_results, config, total):
     # Format results string
     
-    result_string = f'**{date.today().strftime("%A, %m/%d/%Y")}.** {total} new records. Displaying {raw_results[0]["index"]} to {raw_results[-1]["index"]}.'
+    if raw_results[0]["index"] == 1:
+        result_string = f'**{date.today().strftime("%A, %m/%d/%Y")}.** {total} new records. Displaying {raw_results[0]["index"]} to {raw_results[-1]["index"]}.'
+    else:
+        result_string = f'**{date.today().strftime("%A, %m/%d/%Y")} continued.** Displaying {raw_results[0]["index"]} to {raw_results[-1]["index"]}.'
 
     for result in raw_results:
         result_string += '\n\n-------------------------------------------------------------------------------------------------------------------'
