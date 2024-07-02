@@ -109,6 +109,8 @@ agencies:
     abbr: Commerce
   - agency: "COMMODITY FUTURES TRADING COMMISSION"
     abbr: CFTC
+  - agency: "CORPORATION FOR NATIONAL AND COMMUNITY SERVICE"
+    abbr: AmeriCorps
   - agency: "COURT SERVICES AND OFFENDER SUPERVISION AGENCY"
     abbr: "DC - Court Services and Offender Supervision Agency"
   - agency: "DEFENSE ADVANCED RESEARCH PROJECTS AGENCY (DARPA)"
@@ -315,6 +317,8 @@ agencies:
     abbr: USPTO
   - agency: "UNITED STATES TRADE AND DEVELOPMENT AGENCY"
     abbr: USTDA
+  - agency: "US SECRET SERVICE"
+    abbr: "Secret Service"
   - agency: "US SPECIAL OPERATIONS COMMAND (USSOCOM)"
     abbr: USSOCOM
   - agency: "U.S. TRANSPORTATION COMMAND (USTRANSCOM)"
