@@ -267,6 +267,8 @@ agencies:
     abbr: OPM
   - agency: "PENSION BENEFIT GUARANTY CORPORATION"
     abbr: PBGC
+  - agency: "PIPELINE AND HAZARDOUS MATERIALS SAFETY ADMINISTRATION"
+    abbr: "DOT - PHMSA"
   - agency: "POSTAL SERVICE"
     abbr: USPS
   - agency: "PUBLIC BUILDINGS SERVICE"
