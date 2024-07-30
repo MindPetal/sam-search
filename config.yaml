@@ -69,6 +69,8 @@ set_asides:
 agencies:
   - agency: "ADMINISTRATION FOR CHILDREN AND FAMILIES"
     abbr: "HHS - ACF"
+  - agency: "ADMINISTRATION FOR STRATEGIC PREPAREDNESS AND RESPONSE"
+    abbr: "HHS - ASPR"
   - agency: "ADMINISTRATIVE OFFICE OF THE US COURTS"
     abbr: "AO US Courts"
   - agency: "AGRICULTURAL RESEARCH SERVICE"
@@ -179,6 +181,8 @@ agencies:
     abbr: FERC
   - agency: "FEDERAL HIGHWAY ADMINISTRATION"
     abbr: FHWA
+  - agency: "FEDERAL MEDIATION AND CONCILIATION SERVICE"
+    abbr: FMCS
   - agency: "FEDERAL MOTOR CARRIER SAFETY ADMINISTRATION"
     abbr: "DOT - FMCSA"
   - agency: "FEDERAL PRISON SYSTEM / BUREAU OF PRISONS"
@@ -193,6 +197,8 @@ agencies:
     abbr: "Forest Service"
   - agency: "GAO, EXCEPT COMPTROLLER GENERAL"
     abbr: GAO
+  - agency: "GREAT LAKES ST LAWRENCE SEAWAY DEVELOPMENT CORPORATION"
+    abbr: "DOT - Great Lakes St Lawrence Seaway Develop Corp"
   - agency: "GENERAL SERVICES ADMINISTRATION"
     abbr: GSA
   - agency: "GOVERNMENT ACCOUNTABILITY OFFICE"
@@ -217,6 +223,8 @@ agencies:
     abbr: IRS
   - agency: "INTERNATIONAL TRADE COMMISSION"
     abbr: "International Trade Commission"
+  - agency: "MARITIME ADMINISTRATION"
+    abbr: "DOT - Maritime Administration"
   - agency: "MERIT SYSTEMS PROTECTION BOARD"
     abbr: "Merit Systems Protection Board"
   - agency: "MISSILE DEFENSE AGENCY (MDA)"
@@ -267,6 +275,8 @@ agencies:
     abbr: OPM
   - agency: "PENSION BENEFIT GUARANTY CORPORATION"
     abbr: PBGC
+  - agency: "PIPELINE AND HAZARDOUS MATERIALS SAFETY ADMINISTRATION"
+    abbr: "DOT - PHMSA"
   - agency: "POSTAL SERVICE"
     abbr: USPS
   - agency: "PUBLIC BUILDINGS SERVICE"
@@ -283,6 +293,8 @@ agencies:
     abbr: "State Dept"
   - agency: "SUBSTANCE ABUSE AND MENTAL HEALTH SERVICES ADMINISTRATION"
     abbr: SAMHSA
+  - agency: "THE UNITED STATES SENATE SERGEANT AT ARMS"
+    abbr: "Senate - Sergeant at Arms"
   - agency: "TRANSPORTATION, DEPARTMENT OF"
     abbr: Transportation
   - agency: "TRANSPORTATION SECURITY ADMINISTRATION"
@@ -291,6 +303,8 @@ agencies:
     abbr: Treasury
   - agency: "UNITED STATES INTERNATIONAL DEVELOPMENT FINANCE CORPORATION"
     abbr: DFC
+  - agency: "UNITED STATES AGENCY FOR GLOBAL MEDIA, BBG"
+    abbr: "Agency for Global Media"
   - agency: "US CENSUS BUREAU"
     abbr: Census
   - agency: "US CITIZENSHIP AND IMMIGRATION SERVICES"
