@@ -164,7 +164,7 @@ def teams_post(api_client, content):
     
     try:
         api_response = api_instance.teams_post(body={'text': content})
-
+        
     except ApiException as e:
         log.exception("Exception when calling MsApi->teams_post: %s\n" % e)
 
@@ -182,7 +182,7 @@ def main(sam_api_key, ms_webhook_url):
 
     log.info('Process Teams posts')
     api_config.host = ms_webhook_url
-
+    
     for result in search_results:
         teams_post(api_client, result)
 
