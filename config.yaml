@@ -85,6 +85,8 @@ agencies:
     abbr: ABMC
   - agency: "ANIMAL AND PLANT HEALTH INSPECTION SERVICE"
     abbr: "USDA - APHIS"
+  - agency: "ARCHITECT OF THE CAPITOL"
+    abbr: "Architect of the Capitol"
   - agency: "ATF ACQUISITION AND PROPERTY MGMT DIV"
     abbr: ATF
   - agency: "BUREAU OF ENGRAVING AND PRINTING"
@@ -301,6 +303,8 @@ agencies:
     abbr: TSA
   - agency: "TREASURY, DEPARTMENT OF THE"
     abbr: Treasury
+  - agency: "UNIFORMED SERVICES UNIVERSITY OF THE HEALTH SCIENCES (USUHS)"
+    abbr: "Uniformed Services University"
   - agency: "UNITED STATES INTERNATIONAL DEVELOPMENT FINANCE CORPORATION"
     abbr: DFC
   - agency: "UNITED STATES AGENCY FOR GLOBAL MEDIA, BBG"
