@@ -229,6 +229,8 @@ agencies:
     abbr: IRS
   - agency: "INTERNATIONAL TRADE COMMISSION"
     abbr: "International Trade Commission"
+  - agency: "JUSTICE, DEPARTMENT OF"
+    abbr: DOJ
   - agency: "MARITIME ADMINISTRATION"
     abbr: "DOT - Maritime Administration"
   - agency: "MERIT SYSTEMS PROTECTION BOARD"
