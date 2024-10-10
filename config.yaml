@@ -25,6 +25,8 @@ naics:
     desc: "Other Scientific and Technical Consulting Services"
   - code: 541990
     desc: "All Other Professional, Scientific, and Technical Services"
+  - code: 92119
+    desc: "Other General Government Support"
   - code: 921190
     desc: "Other General Government Support"
   - code: 541715
