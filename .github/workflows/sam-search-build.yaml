@@ -33,3 +33,5 @@ jobs:
       run: flake8 . --count --select=E9,F63,F7,F82 --ignore=F821 --show-source --statistics
     - name: Run pytest unit tests
       run: pytest test_search.py
+    - name: Summary
+      run: echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
