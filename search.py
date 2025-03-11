@@ -115,21 +115,19 @@ def format_results(raw_results, config, total):
         result_string = f'**{date.today().strftime("%A, %m/%d/%Y")} continued.** Displaying {raw_results[0]["index"]} to {raw_results[-1]["index"]}.'
 
     for result in raw_results:
-        result_string += "\n\n-------------------------------------------------------------------------------------------------------------------"
-        result_string += (
-            f'\n\n**{result["index"]}. [{result["title"]}]({result["url"]})**'
-        )
+        result_string += "\n\n"
 
         agency = None
 
         if bool(result["agency"]):
             agency = format_agency(result["agency"], config["agencies"])
 
-        result_string += f"\n\n**Agency:** {agency}"
-        result_string += f'\n\n**Date:** {format_date(result["posted_date"])} | **Due:** {format_date(result["due_date"])}'
+        result_string += f'\u2705 **{result["index"]}. {agency}: [{result["title"]}]({result["url"]})**'
+
+        result_string += f'\n\n**Date:** {format_date(result["posted_date"])} | **Due:** {format_date(result["due_date"])} | '
 
         set_aside = format_set_aside(result["set_aside"], config["set_asides"])
-        result_string += f'\n\n**Type:** {result["type"]} | **Set Aside:** {set_aside} | **NAICS:** {result["naics"]}'
+        result_string += f'**Type:** {result["type"]} | **Set Aside:** {set_aside} | **NAICS:** {result["naics"]}'
 
     return result_string
 
@@ -179,7 +177,33 @@ def teams_post(api_client, content):
     api_instance = client.MsApi(api_client)
 
     try:
-        api_instance.teams_post(body={"text": content})
+        api_instance.teams_post(
+            body={
+                "type": "message",
+                "attachments": [
+                    {
+                        "contentType": "application/vnd.microsoft.card.adaptive",
+                        "content": {
+                            "type": "AdaptiveCard",
+                            "version": "1.0",
+                            "body": [
+                                {
+                                    "type": "Container",
+                                    "items": [
+                                        {
+                                            "type": "TextBlock",
+                                            "text": content,
+                                            "wrap": True,
+                                        }
+                                    ],
+                                }
+                            ],
+                            "msteams": {"width": "Full"},
+                        },
+                    }
+                ],
+            }
+        )
 
     except ApiException as e:
         log.exception("Exception when calling MsApi->teams_post: %s\n" % e)
