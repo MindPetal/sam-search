@@ -107,29 +107,55 @@ def format_set_aside(set_aside, set_asides):
 
 
 def format_results(raw_results, config, total):
-    # Format results string
+    # Format results strings
+
+    items = []
 
     if raw_results[0]["index"] == 1:
-        result_string = f'**{date.today().strftime("%A, %m/%d/%Y")}.** {total} new records. Displaying {raw_results[0]["index"]} to {raw_results[-1]["index"]}.'
+        header = f'**{date.today().strftime("%A, %m/%d/%Y")}.** {total} new records. Displaying {raw_results[0]["index"]} to {raw_results[-1]["index"]}.'
     else:
-        result_string = f'**{date.today().strftime("%A, %m/%d/%Y")} continued.** Displaying {raw_results[0]["index"]} to {raw_results[-1]["index"]}.'
+        header = f'**{date.today().strftime("%A, %m/%d/%Y")} continued.** Displaying {raw_results[0]["index"]} to {raw_results[-1]["index"]}.'
+
+    items += [
+        {
+            "type": "TextBlock",
+            "text": header,
+            "wrap": True,
+        },
+        {
+            "type": "TextBlock",
+            "text": "",
+        },
+    ]
 
     for result in raw_results:
-        result_string += "\n\n"
-
         agency = None
 
         if bool(result["agency"]):
             agency = format_agency(result["agency"], config["agencies"])
 
-        result_string += f'\u2705 **{result["index"]}. {agency}: [{result["title"]}]({result["url"]})**'
+        content = (
+            f'**{result["index"]}. {agency}: [{result["title"]}]({result["url"]})**'
+        )
 
-        result_string += f'\n\n**Date:** {format_date(result["posted_date"])} | **Due:** {format_date(result["due_date"])} | '
+        content += f'\n\n   **Date:** {format_date(result["posted_date"])} | **Due:** {format_date(result["due_date"])} | '
 
         set_aside = format_set_aside(result["set_aside"], config["set_asides"])
-        result_string += f'**Type:** {result["type"]} | **Set Aside:** {set_aside} | **NAICS:** {result["naics"]}'
+        content += f'**Type:** {result["type"]} | **Set Aside:** {set_aside} | **NAICS:** {result["naics"]}'
 
-    return result_string
+        items += [
+            {
+                "type": "TextBlock",
+                "text": content,
+                "wrap": True,
+            },
+            {
+                "type": "TextBlock",
+                "text": "",
+            },
+        ]
+
+    return items
 
 
 def process_search(api_client, sam_api_key, config):
@@ -172,7 +198,7 @@ def process_search(api_client, sam_api_key, config):
     return formatted_results
 
 
-def teams_post(api_client, content):
+def teams_post(api_client, items):
     # Execute MS Teams post
     api_instance = client.MsApi(api_client)
 
@@ -186,27 +212,7 @@ def teams_post(api_client, content):
                         "content": {
                             "type": "AdaptiveCard",
                             "version": "1.0",
-                            "body": [
-                                {
-                                    "type": "Container",
-                                    "items": [
-                                        {
-                                            "type": "TextBlock",
-                                            "text": "Thursday, 03/20/2025. 2 new records. Displaying 1 to 2.\n\n1. **Test: [Test](https://test.com)**\n\n   **Date:** 03/19/2025 | **Due:** 03/26/2025 - 11:59AM EDT | **Type:** Test | **Set Aside:** Test | **NAICS:** 123456",
-                                            "wrap": True,
-                                        },
-                                        {
-                                            "type": "TextBlock",
-                                            "text": "",
-                                        },
-                                        {
-                                            "type": "TextBlock",
-                                            "text": "2. **Test: [Test](https://test.com)**\n\n   **Date:** 03/19/2025 | **Due:** 03/26/2025 - 11:59AM EDT | **Type:** Test | **Set Aside:** Test | **NAICS:** 123456",
-                                            "wrap": True,
-                                        }
-                                    ],
-                                }
-                            ],
+                            "body": [{"type": "Container", "items": items}],
                             "msteams": {"width": "Full"},
                         },
                     }

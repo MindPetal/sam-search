@@ -120,15 +120,37 @@ def test_format_results():
             "index": 2,
         },
     ]
-    formatted_results = (
-        f'**{date.today().strftime("%A, %m/%d/%Y")}.** 2 new records. Displaying 1 to 2.'
-        + "\n\n"
-        + "\u2705 **1. Air Force: [Test title](https://sam.gov/opp/bc92c9b1d0944b11b05d719c4f5dc863/view)**"
-        + "\n\n**Date:** 02/25/2024 | **Due:** 03/25/2024 - 04:00PM EDT | **Type:** Solicitation | **Set Aside:** None | **NAICS:** 541511"
-        + "\n\n"
-        + "\u2705 **2. Energy: [Test title](https://sam.gov/opp/84bfc6e3413e487db821841c9ab4701c/view)**"
-        + "\n\n**Date:** 02/25/2024 | **Due:** 03/12/2024 - 11:59PM EDT | **Type:** Special Notice | **Set Aside:** Total SB | **NAICS:** 541511"
-    )
+
+    items = [
+        {
+            "type": "TextBlock",
+            "text": f'**{date.today().strftime("%A, %m/%d/%Y")}.** 2 new records. Displaying 1 to 2.',
+            "wrap": True,
+        },
+        {
+            "type": "TextBlock",
+            "text": "",
+        },
+        {
+            "type": "TextBlock",
+            "text": "**1. Air Force: [Test title](https://sam.gov/opp/bc92c9b1d0944b11b05d719c4f5dc863/view)**\n\n   **Date:** 02/25/2024 | **Due:** 03/25/2024 - 04:00PM EDT | **Type:** Solicitation | **Set Aside:** None | **NAICS:** 541511",
+            "wrap": True,
+        },
+        {
+            "type": "TextBlock",
+            "text": "",
+        },
+        {
+            "type": "TextBlock",
+            "text": "**2. Energy: [Test title](https://sam.gov/opp/84bfc6e3413e487db821841c9ab4701c/view)**\n\n   **Date:** 02/25/2024 | **Due:** 03/12/2024 - 11:59PM EDT | **Type:** Special Notice | **Set Aside:** Total SB | **NAICS:** 541511",
+            "wrap": True,
+        },
+        {
+            "type": "TextBlock",
+            "text": "",
+        },
+    ]
+
     config = {
         "agencies": [
             {"agency": "ENERGY, DEPARTMENT OF", "abbr": "Energy"},
@@ -137,7 +159,7 @@ def test_format_results():
         "set_asides": [{"code": "SBA", "desc": "Total SB"}],
     }
 
-    assert formatted_results == search.format_results(raw_results, config, 2)
+    assert items == search.format_results(raw_results, config, 2)
 
 
 def test_process_search_less_40(mocker):
@@ -163,15 +185,37 @@ def test_process_search_less_40(mocker):
             "url": "https://sam.gov/opp/84bfc6e3413e487db821841c9ab4701c/view",
         },
     ]
-    formatted_results = (
-        f'**{date.today().strftime("%A, %m/%d/%Y")}.** 2 new records. Displaying 1 to 2.'
-        + "\n\n"
-        + "\u2705 **1. Air Force: [Test title](https://sam.gov/opp/bc92c9b1d0944b11b05d719c4f5dc863/view)**"
-        + "\n\n**Date:** 02/25/2024 | **Due:** 03/25/2024 - 04:00PM EDT | **Type:** Solicitation | **Set Aside:** None | **NAICS:** 541511"
-        + "\n\n"
-        + "\u2705 **2. Energy: [Test title](https://sam.gov/opp/84bfc6e3413e487db821841c9ab4701c/view)**"
-        + "\n\n**Date:** 02/25/2024 | **Due:** 03/12/2024 - 11:59PM EDT | **Type:** Special Notice | **Set Aside:** Total SB | **NAICS:** 541511"
-    )
+
+    items = [
+        {
+            "type": "TextBlock",
+            "text": f'**{date.today().strftime("%A, %m/%d/%Y")}.** 2 new records. Displaying 1 to 2.',
+            "wrap": True,
+        },
+        {
+            "type": "TextBlock",
+            "text": "",
+        },
+        {
+            "type": "TextBlock",
+            "text": "**1. Air Force: [Test title](https://sam.gov/opp/bc92c9b1d0944b11b05d719c4f5dc863/view)**\n\n   **Date:** 02/25/2024 | **Due:** 03/25/2024 - 04:00PM EDT | **Type:** Solicitation | **Set Aside:** None | **NAICS:** 541511",
+            "wrap": True,
+        },
+        {
+            "type": "TextBlock",
+            "text": "",
+        },
+        {
+            "type": "TextBlock",
+            "text": "**2. Energy: [Test title](https://sam.gov/opp/84bfc6e3413e487db821841c9ab4701c/view)**\n\n   **Date:** 02/25/2024 | **Due:** 03/12/2024 - 11:59PM EDT | **Type:** Special Notice | **Set Aside:** Total SB | **NAICS:** 541511",
+            "wrap": True,
+        },
+        {
+            "type": "TextBlock",
+            "text": "",
+        },
+    ]
+
     config = {
         "from_days_back": 1,
         "naics": [{"code": 541511}],
@@ -183,7 +227,7 @@ def test_process_search_less_40(mocker):
     }
 
     mocker.patch("search.search", return_value=raw_results)
-    assert [formatted_results] == search.process_search(api_client, "abcd", config)
+    assert [items] == search.process_search(api_client, "abcd", config)
 
 
 def test_process_search_zero(mocker):
@@ -203,15 +247,36 @@ def test_process_search_zero(mocker):
 
 
 def test_teams_post(mocker):
-    formatted_results = (
-        f'**{date.today().strftime("%A, %m/%d/%Y")}.** 2 new records. Displaying 1 to 2.'
-        + "\n\n"
-        + "\u2705 **1. Air Force: [Test title](https://sam.gov/opp/bc92c9b1d0944b11b05d719c4f5dc863/view)**"
-        + "\n\n**Date:** 02/25/2024 | **Due:** 03/25/2024 - 04:00PM EDT | **Type:** Solicitation | **Set Aside:** None | **NAICS:** 541511"
-        + "\n\n"
-        + "\u2705 **2. Energy: [Test title](https://sam.gov/opp/84bfc6e3413e487db821841c9ab4701c/view)**"
-        + "\n\n**Date:** 02/25/2024 | **Due:** 03/12/2024 - 11:59PM EDT | **Type:** Special Notice | **Set Aside:** Total SB | **NAICS:** 541511"
-    )
+    items = [
+        {
+            "type": "TextBlock",
+            "text": f'**{date.today().strftime("%A, %m/%d/%Y")}.** 2 new records. Displaying 1 to 2.',
+            "wrap": True,
+        },
+        {
+            "type": "TextBlock",
+            "text": "",
+        },
+        {
+            "type": "TextBlock",
+            "text": "**1. Air Force: [Test title](https://sam.gov/opp/bc92c9b1d0944b11b05d719c4f5dc863/view)**\n\n   **Date:** 02/25/2024 | **Due:** 03/25/2024 - 04:00PM EDT | **Type:** Solicitation | **Set Aside:** None | **NAICS:** 541511",
+            "wrap": True,
+        },
+        {
+            "type": "TextBlock",
+            "text": "",
+        },
+        {
+            "type": "TextBlock",
+            "text": "**2. Energy: [Test title](https://sam.gov/opp/84bfc6e3413e487db821841c9ab4701c/view)**\n\n   **Date:** 02/25/2024 | **Due:** 03/12/2024 - 11:59PM EDT | **Type:** Special Notice | **Set Aside:** Total SB | **NAICS:** 541511",
+            "wrap": True,
+        },
+        {
+            "type": "TextBlock",
+            "text": "",
+        },
+    ]
+
     body = {
         "type": "message",
         "attachments": [
@@ -220,23 +285,12 @@ def test_teams_post(mocker):
                 "content": {
                     "type": "AdaptiveCard",
                     "version": "1.0",
-                    "body": [
-                        {
-                            "type": "Container",
-                            "items": [
-                                {
-                                    "type": "TextBlock",
-                                    "text": formatted_results,
-                                    "wrap": True,
-                                }
-                            ],
-                        }
-                    ],
+                    "body": [{"type": "Container", "items": items}],
                     "msteams": {"width": "Full"},
                 },
             }
         ],
     }
     mock_teams_post = mocker.patch("search.client.MsApi.teams_post")
-    search.teams_post(api_client, formatted_results)
+    search.teams_post(api_client, items)
     mock_teams_post.assert_called_once_with(body=body)
