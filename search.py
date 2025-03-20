@@ -192,7 +192,7 @@ def teams_post(api_client, content):
                                     "items": [
                                         {
                                             "type": "TextBlock",
-                                            "text": content,
+                                            "text": "Thursday, 03/20/2025. 3 new records. Displaying 1 to 3.\n\n1. **Test: [Test](https://test.com)**\n   **Date:** 03/19/2025 | **Due:** 03/26/2025 - 11:59AM EDT | **Type:** Test | **Set Aside:** Test | **NAICS:** 123456\n\n2. **Test: [Test](https://test.com)**\n   **Date:** 03/19/2025 | **Due:** 03/26/2025 - 11:59AM EDT | **Type:** Test | **Set Aside:** Test | **NAICS:** 123456\n\n3. **Test: [Test](https://test.com)**\n   **Date:** 03/19/2025 | **Due:** 03/26/2025 - 11:59AM EDT | **Type:** Test | **Set Aside:** Test | **NAICS:** 123456",
                                             "wrap": True,
                                         }
                                     ],
