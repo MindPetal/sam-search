@@ -138,7 +138,7 @@ def format_results(raw_results, config, total):
             f'**{result["index"]}. {agency}: [{result["title"]}]({result["url"]})**'
         )
 
-        content += f'\n\n   **Date:** {format_date(result["posted_date"])} | **Due:** {format_date(result["due_date"])} | '
+        content += f'\n\n- **Date:** {format_date(result["posted_date"])} | **Due:** {format_date(result["due_date"])} | '
 
         set_aside = format_set_aside(result["set_aside"], config["set_asides"])
         content += f'**Type:** {result["type"]} | **Set Aside:** {set_aside} | **NAICS:** {result["naics"]}'
