@@ -155,6 +155,8 @@ agencies:
     abbr: DTRA
   - agency: "DEPT OF DEFENSE"
     abbr: DOD
+  - agency: "DEPT OF DEFENSE EDUCATION ACTIVITY (DODEA)"
+    abbr: "DOD - DODEA"
   - agency: "FOOD AND DRUG ADMINISTRATION"
     abbr: FDA
   - agency: "DEPT OF THE AIR FORCE"
@@ -173,6 +175,8 @@ agencies:
     abbr: EPA
   - agency: "EXECUTIVE OFFICE OF THE PRESIDENT"
     abbr: "Executive Office of the President"
+  - agency: "EXPORT-IMPORT BANK OF THE UNITED STATES"
+    abbr: "EXIM"
   - agency: "FARM PRODUCTION AND CONSERVATION BUSINESS CENTER"
     abbr: FPAC
   - agency: "FEDERAL ACQUISITION SERVICE"
@@ -199,6 +203,8 @@ agencies:
     abbr: "DOT - FRA"
   - agency: "FEDERAL TRANSIT ADMINISTRATION"
     abbr: "Transportation - FTA"
+  - agency: "FOOD AND NUTRITION SERVICE"
+    abbr: "USDA - FNS"
   - agency: "FOOD SAFETY AND INSPECTION SERVICE"
     abbr: "USDA - FSIS"
   - agency: "FOREST SERVICE"
@@ -217,6 +223,8 @@ agencies:
     abbr: HRSA
   - agency: "HOMELAND SECURITY, DEPARTMENT OF"
     abbr: DHS
+  - agency: "HOUSE OF REPRESENTATIVES, THE"
+    abbr: "House of Representatives"
   - agency: "HOUSING AND URBAN DEVELOPMENT, DEPARTMENT OF"
     abbr: HUD
   - agency: "IMMED OFFICE OF THE SECRETARY OF HEALTH AND HUMAN SERVICES"
@@ -297,6 +305,8 @@ agencies:
     abbr: SEC
   - agency: "SMALL BUSINESS ADMINISTRATION"
     abbr: SBA
+  - agency: "SMITHSONIAN INSTITUTION"
+    abbr: "Smithsonian"
   - agency: "SOCIAL SECURITY ADMINISTRATION"
     abbr: SSA
   - agency: "STATE, DEPARTMENT OF"

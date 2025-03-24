@@ -89,6 +89,14 @@ def test_format_set_aside_yes():
     assert "Total SB" == search.format_set_aside("SBA", set_asides)
 
 
+def test_build_textblock():
+    assert {
+        "type": "TextBlock",
+        "text": "Test",
+        "wrap": True,
+    } == search.build_textblock("Test")
+
+
 def test_format_set_aside_no():
     set_asides = [{"code": "SBA", "desc": "Total SB"}]
 
@@ -130,24 +138,27 @@ def test_format_results():
         {
             "type": "TextBlock",
             "text": "",
+            "wrap": True,
         },
         {
             "type": "TextBlock",
-            "text": "1. **Air Force: [Test title](https://sam.gov/opp/bc92c9b1d0944b11b05d719c4f5dc863/view)**\n\n- **Date:** 02/25/2024 | **Due:** 03/25/2024 - 04:00PM EDT | **Type:** Solicitation | **Set Aside:** None | **NAICS:** 541511",
+            "text": "1. **Air Force:** [Test title](https://sam.gov/opp/bc92c9b1d0944b11b05d719c4f5dc863/view)\n\n- **Date:** 02/25/2024 | **Due:** 03/25/2024 - 04:00PM EDT | **Type:** Solicitation | **Set Aside:** None | **NAICS:** 541511",
             "wrap": True,
         },
         {
             "type": "TextBlock",
             "text": "",
+            "wrap": True,
         },
         {
             "type": "TextBlock",
-            "text": "2. **Energy: [Test title](https://sam.gov/opp/84bfc6e3413e487db821841c9ab4701c/view)**\n\n- **Date:** 02/25/2024 | **Due:** 03/12/2024 - 11:59PM EDT | **Type:** Special Notice | **Set Aside:** Total SB | **NAICS:** 541511",
+            "text": "2. **Energy:** [Test title](https://sam.gov/opp/84bfc6e3413e487db821841c9ab4701c/view)\n\n- **Date:** 02/25/2024 | **Due:** 03/12/2024 - 11:59PM EDT | **Type:** Special Notice | **Set Aside:** Total SB | **NAICS:** 541511",
             "wrap": True,
         },
         {
             "type": "TextBlock",
             "text": "",
+            "wrap": True,
         },
     ]
 
@@ -195,24 +206,27 @@ def test_process_search_less_40(mocker):
         {
             "type": "TextBlock",
             "text": "",
+            "wrap": True,
         },
         {
             "type": "TextBlock",
-            "text": "1. **Air Force: [Test title](https://sam.gov/opp/bc92c9b1d0944b11b05d719c4f5dc863/view)**\n\n- **Date:** 02/25/2024 | **Due:** 03/25/2024 - 04:00PM EDT | **Type:** Solicitation | **Set Aside:** None | **NAICS:** 541511",
+            "text": "1. **Air Force:** [Test title](https://sam.gov/opp/bc92c9b1d0944b11b05d719c4f5dc863/view)\n\n- **Date:** 02/25/2024 | **Due:** 03/25/2024 - 04:00PM EDT | **Type:** Solicitation | **Set Aside:** None | **NAICS:** 541511",
             "wrap": True,
         },
         {
             "type": "TextBlock",
             "text": "",
+            "wrap": True,
         },
         {
             "type": "TextBlock",
-            "text": "2. **Energy: [Test title](https://sam.gov/opp/84bfc6e3413e487db821841c9ab4701c/view)**\n\n- **Date:** 02/25/2024 | **Due:** 03/12/2024 - 11:59PM EDT | **Type:** Special Notice | **Set Aside:** Total SB | **NAICS:** 541511",
+            "text": "2. **Energy:** [Test title](https://sam.gov/opp/84bfc6e3413e487db821841c9ab4701c/view)\n\n- **Date:** 02/25/2024 | **Due:** 03/12/2024 - 11:59PM EDT | **Type:** Special Notice | **Set Aside:** Total SB | **NAICS:** 541511",
             "wrap": True,
         },
         {
             "type": "TextBlock",
             "text": "",
+            "wrap": True,
         },
     ]
 
@@ -256,24 +270,27 @@ def test_teams_post(mocker):
         {
             "type": "TextBlock",
             "text": "",
+            "wrap": True,
         },
         {
             "type": "TextBlock",
-            "text": "1. **Air Force: [Test title](https://sam.gov/opp/bc92c9b1d0944b11b05d719c4f5dc863/view)**\n\n- **Date:** 02/25/2024 | **Due:** 03/25/2024 - 04:00PM EDT | **Type:** Solicitation | **Set Aside:** None | **NAICS:** 541511",
+            "text": "1. **Air Force:** [Test title](https://sam.gov/opp/bc92c9b1d0944b11b05d719c4f5dc863/view)\n\n- **Date:** 02/25/2024 | **Due:** 03/25/2024 - 04:00PM EDT | **Type:** Solicitation | **Set Aside:** None | **NAICS:** 541511",
             "wrap": True,
         },
         {
             "type": "TextBlock",
             "text": "",
+            "wrap": True,
         },
         {
             "type": "TextBlock",
-            "text": "2. **Energy: [Test title](https://sam.gov/opp/84bfc6e3413e487db821841c9ab4701c/view)**\n\n- **Date:** 02/25/2024 | **Due:** 03/12/2024 - 11:59PM EDT | **Type:** Special Notice | **Set Aside:** Total SB | **NAICS:** 541511",
+            "text": "2. **Energy:** [Test title](https://sam.gov/opp/84bfc6e3413e487db821841c9ab4701c/view)\n\n- **Date:** 02/25/2024 | **Due:** 03/12/2024 - 11:59PM EDT | **Type:** Special Notice | **Set Aside:** Total SB | **NAICS:** 541511",
             "wrap": True,
         },
         {
             "type": "TextBlock",
             "text": "",
+            "wrap": True,
         },
     ]
 

@@ -106,6 +106,11 @@ def format_set_aside(set_aside, set_asides):
     return set_aside
 
 
+def build_textblock(content):
+    # Build TextBlock for MS Teams
+    return {"type": "TextBlock", "text": content, "wrap": True}
+
+
 def format_results(raw_results, config, total):
     # Format results strings
 
@@ -116,17 +121,7 @@ def format_results(raw_results, config, total):
     else:
         header = f'**{date.today().strftime("%A, %m/%d/%Y")} continued.** Displaying {raw_results[0]["index"]} to {raw_results[-1]["index"]}.'
 
-    items += [
-        {
-            "type": "TextBlock",
-            "text": header,
-            "wrap": True,
-        },
-        {
-            "type": "TextBlock",
-            "text": "",
-        },
-    ]
+    items += [build_textblock(header), build_textblock("")]
 
     for result in raw_results:
         agency = None
@@ -135,7 +130,7 @@ def format_results(raw_results, config, total):
             agency = format_agency(result["agency"], config["agencies"])
 
         content = (
-            f'{result["index"]}. **{agency}: [{result["title"]}]({result["url"]})**'
+            f'{result["index"]}. **{agency}:** [{result["title"]}]({result["url"]})'
         )
 
         content += f'\n\n- **Date:** {format_date(result["posted_date"])} | **Due:** {format_date(result["due_date"])} | '
@@ -143,17 +138,7 @@ def format_results(raw_results, config, total):
         set_aside = format_set_aside(result["set_aside"], config["set_asides"])
         content += f'**Type:** {result["type"]} | **Set Aside:** {set_aside} | **NAICS:** {result["naics"]}'
 
-        items += [
-            {
-                "type": "TextBlock",
-                "text": content,
-                "wrap": True,
-            },
-            {
-                "type": "TextBlock",
-                "text": "",
-            },
-        ]
+        items += [build_textblock(content), build_textblock("")]
 
     return items
 
