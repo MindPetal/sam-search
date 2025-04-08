@@ -143,6 +143,8 @@ agencies:
     abbr: DISA
   - agency: "DEFENSE INTELLIGENCE AGENCY"
     abbr: DIA
+  - agency: "DEFENSE INTELLIGENCE AGENCY (DIA)"
+    abbr: DIA
   - agency: "DEFENSE LOGISTICS AGENCY"
     abbr: DLA
   - agency: "DEFENSE LOGISTICS AGENCY (DLA)"
@@ -177,6 +179,8 @@ agencies:
     abbr: "Executive Office of the President"
   - agency: "EXPORT-IMPORT BANK OF THE UNITED STATES"
     abbr: "EXIM"
+  - agency: "EXPORT-IMPORT BANK OF THE US"
+    abbr: "EXIM"
   - agency: "FARM PRODUCTION AND CONSERVATION BUSINESS CENTER"
     abbr: FPAC
   - agency: "FEDERAL ACQUISITION SERVICE"
@@ -193,6 +197,8 @@ agencies:
     abbr: FERC
   - agency: "FEDERAL HIGHWAY ADMINISTRATION"
     abbr: FHWA
+  - agency: "FEDERAL LAW ENFORCEMENT TRAINING CENTER"
+    abbr: "DHS - FLETC"
   - agency: "FEDERAL MEDIATION AND CONCILIATION SERVICE"
     abbr: FMCS
   - agency: "FEDERAL MOTOR CARRIER SAFETY ADMINISTRATION"
@@ -201,6 +207,8 @@ agencies:
     abbr: FBOP
   - agency: "FEDERAL RAILROAD ADMINISTRATION"
     abbr: "DOT - FRA"
+  - agency: "FEDERAL RETIREMENT THRIFT INVESTMENT BOARD"
+    abbr: FRTIB
   - agency: "FEDERAL TRANSIT ADMINISTRATION"
     abbr: "Transportation - FTA"
   - agency: "FOOD AND NUTRITION SERVICE"
@@ -241,6 +249,8 @@ agencies:
     abbr: "International Trade Commission"
   - agency: "JUSTICE, DEPARTMENT OF"
     abbr: DOJ
+  - agency: "LABOR, DEPARTMENT OF"
+    abbr: DOL
   - agency: "MARITIME ADMINISTRATION"
     abbr: "DOT - Maritime Administration"
   - agency: "MERIT SYSTEMS PROTECTION BOARD"

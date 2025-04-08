@@ -7,6 +7,7 @@ import logging
 import sys
 from datetime import date, datetime, timedelta, timezone
 from itertools import zip_longest
+import time
 from zoneinfo import ZoneInfo
 
 import yaml
@@ -57,6 +58,7 @@ def format_agency(agency, agencies):
             "IMMEDIATE OFFICE OF THE SECRETARY OF DEFENSE",
             "OFFICE OF INSPECTOR GENERAL",
             "OFFICE OF THE INSPECTOR GENERAL",
+            "OFFICE OF JUSTICE PROGRAMS",
         ):
             agency_substr = sam_agency[0]
         else:
@@ -226,6 +228,7 @@ def main(sam_api_key, ms_webhook_url):
 
     for result in search_results:
         teams_post(api_client, result)
+        time.sleep(5)
 
 
 """ Read in sam_api_key, ms_webhook_url.
