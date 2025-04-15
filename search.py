@@ -228,7 +228,7 @@ def main(sam_api_key, ms_webhook_url):
 
     for result in search_results:
         teams_post(api_client, result)
-        time.sleep(5)
+        time.sleep(30)
 
 
 """ Read in sam_api_key, ms_webhook_url.
