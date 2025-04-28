@@ -19,13 +19,20 @@ log = logging.getLogger("search")
 logging.basicConfig(level=logging.INFO)
 
 
-def load_config():
+def load_config() -> dict:
     # Load yaml config file
     with open("config.yaml", "r") as file:
         return yaml.load(file, Loader=yaml.FullLoader)
 
 
-def search(api_client, api_key, from_date, to_date, limit, naics):
+def search(
+    api_client: client.ApiClient,
+    api_key: str,
+    from_date: str,
+    to_date: str,
+    limit: int,
+    naics: str,
+) -> list[dict]:
     # Execute sam.gov search
     api_instance = client.SamApi(api_client)
 
@@ -43,7 +50,7 @@ def search(api_client, api_key, from_date, to_date, limit, naics):
     return api_response.to_dict()["value"]
 
 
-def format_agency(agency, agencies):
+def format_agency(agency: str, agencies: list[dict]) -> str:
     # Formats the agency name for display
     sam_agency = agency.split(".")
     agency_substr = ""
@@ -79,7 +86,7 @@ def format_agency(agency, agencies):
     return agency_display
 
 
-def format_date(raw_date):
+def format_date(raw_date: str) -> str | None:
     # Format date/times to nice format
     formatted_date = None
 
@@ -97,7 +104,7 @@ def format_date(raw_date):
     return formatted_date
 
 
-def format_set_aside(set_aside, set_asides):
+def format_set_aside(set_aside: str, set_asides: list[dict]) -> str:
     # Format set-aside type for display
 
     if bool(set_aside):
@@ -108,12 +115,12 @@ def format_set_aside(set_aside, set_asides):
     return set_aside
 
 
-def build_textblock(content):
+def build_textblock(content: str) -> dict:
     # Build TextBlock for MS Teams
     return {"type": "TextBlock", "text": content, "wrap": True}
 
 
-def format_results(raw_results, config, total):
+def format_results(raw_results: list[dict], config: dict, total: int) -> list:
     # Format results strings
 
     items = []
@@ -124,7 +131,7 @@ def format_results(raw_results, config, total):
             header = f'**{date.today().strftime("%A, %m/%d/%Y")}.** {total} new records. Displaying {raw_results[0]["index"]} to {raw_results[-1]["index"]}.'
         elif total == 1:
             header = f'**{date.today().strftime("%A, %m/%d/%Y")}.** {total} new record. Displaying {raw_results[0]["index"]}.'
-        
+
     else:
         header = f'**{date.today().strftime("%A, %m/%d/%Y")} continued.** Displaying {raw_results[0]["index"]} to {raw_results[-1]["index"]}.'
 
@@ -150,7 +157,9 @@ def format_results(raw_results, config, total):
     return items
 
 
-def process_search(api_client, sam_api_key, config):
+def process_search(
+    api_client: client.ApiClient, sam_api_key: str, config: dict
+) -> list:
     # Prepare sam.gov search and format results
     raw_results = []
     formatted_results = []
@@ -190,7 +199,7 @@ def process_search(api_client, sam_api_key, config):
     return formatted_results
 
 
-def teams_post(api_client, items):
+def teams_post(api_client: client.ApiClient, items: list[dict]) -> None:
     # Execute MS Teams post
     api_instance = client.MsApi(api_client)
 
@@ -216,11 +225,12 @@ def teams_post(api_client, items):
         log.exception("Exception when calling MsApi->teams_post: %s\n" % e)
 
 
-def main(sam_api_key, ms_webhook_url):
+def main(sam_api_key: str, ms_webhook_url: str) -> None:
     # Primary processing fuction
 
     log.info("Start processing, load config data")
     config = load_config()
+
     api_config = client.Configuration()
     api_config.host = config["sam_url"]
     api_client = client.ApiClient(api_config)
@@ -232,7 +242,7 @@ def main(sam_api_key, ms_webhook_url):
     api_config.host = ms_webhook_url
 
     for result in search_results:
-        teams_post(api_client, result)
+        # teams_post(api_client, result)
         time.sleep(30)
 
 
