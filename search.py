@@ -119,7 +119,12 @@ def format_results(raw_results, config, total):
     items = []
 
     if raw_results[0]["index"] == 1:
-        header = f'**{date.today().strftime("%A, %m/%d/%Y")}.** {total} new records. Displaying {raw_results[0]["index"]} to {raw_results[-1]["index"]}.'
+
+        if total > 1:
+            header = f'**{date.today().strftime("%A, %m/%d/%Y")}.** {total} new records. Displaying {raw_results[0]["index"]} to {raw_results[-1]["index"]}.'
+        elif total == 1:
+            header = f'**{date.today().strftime("%A, %m/%d/%Y")}.** {total} new record. Displaying {raw_results[0]["index"]}.'
+        
     else:
         header = f'**{date.today().strftime("%A, %m/%d/%Y")} continued.** Displaying {raw_results[0]["index"]} to {raw_results[-1]["index"]}.'
 
