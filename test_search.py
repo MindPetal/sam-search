@@ -103,6 +103,54 @@ def test_format_set_aside_no():
     assert search.format_set_aside(None, set_asides) is None
 
 
+def test_format_results_one():
+    raw_results = [
+        {
+            "title": "Test title",
+            "agency": "DEPT OF DEFENSE.DEPT OF THE AIR FORCE.AIR FORCE MATERIEL COMMAND.AIR FORCE SUSTAINMENT CENTER.FA8522  AFSC PZABB",
+            "posted_date": "2024-02-25",
+            "type": "Solicitation",
+            "set_aside": None,
+            "due_date": "2024-03-25T16:00:00-04:00",
+            "naics": "541511",
+            "url": "https://sam.gov/opp/bc92c9b1d0944b11b05d719c4f5dc863/view",
+            "index": 1,
+        }
+    ]
+
+    items = [
+        {
+            "type": "TextBlock",
+            "text": f'**{date.today().strftime("%A, %m/%d/%Y")}.** 1 new record. Displaying 1.',
+            "wrap": True,
+        },
+        {
+            "type": "TextBlock",
+            "text": "",
+            "wrap": True,
+        },
+        {
+            "type": "TextBlock",
+            "text": "1. **Air Force:** [Test title](https://sam.gov/opp/bc92c9b1d0944b11b05d719c4f5dc863/view)\n\n- **Date:** 02/25/2024 | **Due:** 03/25/2024 - 04:00PM EDT | **Type:** Solicitation | **Set Aside:** None | **NAICS:** 541511",
+            "wrap": True,
+        },
+        {
+            "type": "TextBlock",
+            "text": "",
+            "wrap": True,
+        },
+    ]
+
+    config = {
+        "agencies": [
+            {"agency": "DEPT OF THE AIR FORCE", "abbr": "Air Force"},
+        ],
+        "set_asides": [{"code": "SBA", "desc": "Total SB"}],
+    }
+
+    assert items == search.format_results(raw_results, config, 1)
+
+
 def test_format_results():
     raw_results = [
         {
