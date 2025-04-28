@@ -242,7 +242,7 @@ def main(sam_api_key: str, ms_webhook_url: str) -> None:
     api_config.host = ms_webhook_url
 
     for result in search_results:
-        # teams_post(api_client, result)
+        teams_post(api_client, result)
         time.sleep(30)
 
 
