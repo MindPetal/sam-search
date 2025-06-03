@@ -106,8 +106,8 @@ def format_date(raw_date: str) -> str | None:
 
 def format_set_aside(set_aside: str, set_asides: list[dict]) -> str:
     # Format set-aside type for display
-
-    if bool(set_aside):
+    
+    if bool(set_aside) and set_aside.upper() != 'NONE':
         set_aside = next(
             (code for code in set_asides if set_aside == code["code"]), None
         )["desc"]
@@ -148,7 +148,7 @@ def format_results(raw_results: list[dict], config: dict, total: int) -> list:
         )
 
         content += f'\n\n- **Date:** {format_date(result["posted_date"])} | **Due:** {format_date(result["due_date"])} | '
-
+        
         set_aside = format_set_aside(result["set_aside"], config["set_asides"])
         content += f'**Type:** {result["type"]} | **Set Aside:** {set_aside} | **NAICS:** {result["naics"]}'
 
