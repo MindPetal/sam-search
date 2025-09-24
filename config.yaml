@@ -7,10 +7,6 @@ naics:
     desc: "All Other Information Services"
   - code: 518210
     desc: "Data Processing, Hosting, and Related Services"
-  - code: 541430
-    desc: "Graphic Design Services"
-  - code: 541490
-    desc: "Other Specialized Design Services"
   - code: 541511
     desc: "Custom Computer Programming Services"
   - code: 541512
@@ -27,10 +23,6 @@ naics:
     desc: "All Other Professional, Scientific, and Technical Services"
   - code: 92119
     desc: "Other General Government Support"
-  - code: 921190
-    desc: "Other General Government Support"
-  - code: 541715
-    desc: "Research and Development in the Physical, Engineering, and Life Sciences (except Nanotechnology and Biotechnology)"
 set_asides:
   - code: SBA
     desc: "Total SB"

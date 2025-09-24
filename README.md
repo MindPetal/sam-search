@@ -9,7 +9,8 @@ The [SAM-Search-Run](https://github.com/MindPetal/sam-search/actions/workflows/s
 
 More info on setting up Teams webhooks: [Create incoming webhooks with Workflows for Microsoft Teams](https://support.microsoft.com/en-us/office/create-incoming-webhooks-with-workflows-for-microsoft-teams-8ae491c7-0394-4861-ba59-055e33f75498)
 
-Unfortunately the sam.gov API does not allow searching by a list of NAICS like the front-end sam.gov web page does, so this client is making a series of GET requests for each NAICS configured in config.yaml. MS Teams also restricts the size of posted messages, so search results with over 40 records will be broken into additional Teams messages.
+> [!NOTE]
+> The sam.gov get opportunities API does not allow searching by a list of NAICS like the front-end sam.gov web page does, so this client is making a series of GET requests for each NAICS configured in config.yaml. Sam.gov restricts non-federal accounts to 10 API requests per day, so this can only search a max of 10 NAICS per day. MS Teams also restricts the size of posted messages, so search results with over 40 records will be broken into additional Teams messages.
 
 ## Local execution:
 
