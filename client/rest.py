@@ -201,6 +201,7 @@ class RESTClientObject(object):
                 logger.info(f'{method} {url}')
                 r = self.pool_manager.request(method, url,
                                               fields=query_params,
+                                              retries=False,
                                               preload_content=_preload_content,
                                               timeout=timeout,
                                               headers=headers)
@@ -214,7 +215,7 @@ class RESTClientObject(object):
             # log response body
             logger.debug("response body: %s", r.data)
 
-        if not 200 <= r.status <= 299:
+        if r.status != 200:
             raise ApiException(http_resp=r)
 
         return r
