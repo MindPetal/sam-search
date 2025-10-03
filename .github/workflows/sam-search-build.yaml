@@ -8,8 +8,7 @@ on:
     types: [opened, edited, reopened, closed]
     paths:
       - config.yaml
-      - search.py
-      - test_search.py
+      - '**/*.py'
 
 permissions:
   contents: read
