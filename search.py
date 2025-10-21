@@ -46,6 +46,7 @@ def search(
         )
     except ApiException as e:
         log.exception("Exception when calling SamApi->search: %s\n" % e)
+        raise
 
     return api_response.to_dict()["value"]
 
@@ -223,6 +224,7 @@ def teams_post(api_client: client.ApiClient, items: list[dict]) -> None:
 
     except ApiException as e:
         log.exception("Exception when calling MsApi->teams_post: %s\n" % e)
+        raise
 
 
 def main(sam_api_key: str, ms_webhook_url: str) -> None:
