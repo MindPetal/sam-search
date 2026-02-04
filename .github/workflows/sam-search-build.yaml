@@ -6,9 +6,8 @@ on:
   workflow_dispatch:
   pull_request:
     types: [opened, edited, reopened, closed]
-    paths:
-      - config.yaml
-      - '**/*.py'
+    paths-ignore:
+      - '**/*.md'
 
 permissions:
   contents: read
@@ -22,6 +21,7 @@ jobs:
       uses: actions/setup-python@v6
       with:
         python-version: '3.13'
+        cache: 'pip'
     - name: pip package install
       run: |
         pip install . --use-pep517
@@ -33,4 +33,4 @@ jobs:
     - name: Run pytest unit tests
       run: pytest test_search.py
     - name: Summary
-      run: echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
+      run: echo "### Summary :rocket:" >> $GITHUB_STEP_SUMMARY
