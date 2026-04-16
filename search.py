@@ -103,13 +103,13 @@ def format_date(raw_date: str) -> str | None:
     return formatted_date
 
 
-def format_set_aside(set_aside: str, set_asides: list[dict]) -> str:
+def format_set_aside(set_aside: str | None, set_asides: list[dict]) -> str | None:
     # Format set-aside type for display
 
     if bool(set_aside) and set_aside.upper() != "NONE":
-        set_aside = next(
-            (code for code in set_asides if set_aside == code["code"]), None
-        )["desc"]
+        match = next((code for code in set_asides if set_aside == code["code"]), None)
+        if match is not None:
+            set_aside = match["desc"]
 
     return set_aside
 

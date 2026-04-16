@@ -43,4 +43,3 @@ exclude = ["client/", "build/"]
 
 [tool.ty.rules]
 invalid-argument-type = "warn"
-not-subscriptable = "warn"
