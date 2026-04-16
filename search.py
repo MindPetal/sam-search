@@ -1,13 +1,13 @@
 """
-    Script executes via github actions to call 
-    sam.gov opportunities API and post results to MS Teams. 
+Script executes via github actions to call
+sam.gov opportunities API and post results to MS Teams.
 """
 
 import logging
 import sys
+import time
 from datetime import date, datetime, timedelta, timezone
 from itertools import zip_longest
-import time
 from zoneinfo import ZoneInfo
 
 import yaml
@@ -58,7 +58,6 @@ def format_agency(agency: str, agencies: list[dict]) -> str:
     agency_display = ""
 
     if len(sam_agency) > 1:
-
         if sam_agency[1] in (
             "DEPARTMENTAL OFFICES",
             "OFFICE OF THE SECRETARY",
@@ -92,7 +91,6 @@ def format_date(raw_date: str) -> str | None:
     formatted_date = None
 
     if bool(raw_date):
-
         if "T" in raw_date:
             date_obj = datetime.fromisoformat(raw_date).astimezone(timezone.utc)
             date_obj = date_obj.astimezone(ZoneInfo("America/New_York"))
@@ -107,8 +105,8 @@ def format_date(raw_date: str) -> str | None:
 
 def format_set_aside(set_aside: str, set_asides: list[dict]) -> str:
     # Format set-aside type for display
-    
-    if bool(set_aside) and set_aside.upper() != 'NONE':
+
+    if bool(set_aside) and set_aside.upper() != "NONE":
         set_aside = next(
             (code for code in set_asides if set_aside == code["code"]), None
         )["desc"]
@@ -127,14 +125,22 @@ def format_results(raw_results: list[dict], config: dict, total: int) -> list:
     items = []
 
     if raw_results[0]["index"] == 1:
-
         if total > 1:
-            header = f'**{date.today().strftime("%A, %m/%d/%Y")}.** {total} new records. Displaying {raw_results[0]["index"]} to {raw_results[-1]["index"]}.'
+            header = (
+                f"**{date.today().strftime('%A, %m/%d/%Y')}.** {total} new records."
+                f" Displaying {raw_results[0]['index']} to {raw_results[-1]['index']}."
+            )
         elif total == 1:
-            header = f'**{date.today().strftime("%A, %m/%d/%Y")}.** {total} new record. Displaying {raw_results[0]["index"]}.'
+            header = (
+                f"**{date.today().strftime('%A, %m/%d/%Y')}.** {total} new record."
+                f" Displaying {raw_results[0]['index']}."
+            )
 
     else:
-        header = f'**{date.today().strftime("%A, %m/%d/%Y")} continued.** Displaying {raw_results[0]["index"]} to {raw_results[-1]["index"]}.'
+        header = (
+            f"**{date.today().strftime('%A, %m/%d/%Y')} continued.**"
+            f" Displaying {raw_results[0]['index']} to {raw_results[-1]['index']}."
+        )
 
     items += [build_textblock(header), build_textblock("")]
 
@@ -145,13 +151,13 @@ def format_results(raw_results: list[dict], config: dict, total: int) -> list:
             agency = format_agency(result["agency"], config["agencies"])
 
         content = (
-            f'{result["index"]}. **{agency}:** [{result["title"]}]({result["url"]})'
+            f"{result['index']}. **{agency}:** [{result['title']}]({result['url']})"
         )
 
-        content += f'\n\n- **Date:** {format_date(result["posted_date"])} | **Due:** {format_date(result["due_date"])} | '
-        
+        content += f"\n\n- **Date:** {format_date(result['posted_date'])} | **Due:** {format_date(result['due_date'])} | "
+
         set_aside = format_set_aside(result["set_aside"], config["set_asides"])
-        content += f'**Type:** {result["type"]} | **Set Aside:** {set_aside} | **NAICS:** {result["naics"]}'
+        content += f"**Type:** {result['type']} | **Set Aside:** {set_aside} | **NAICS:** {result['naics']}"
 
         items += [build_textblock(content), build_textblock("")]
 

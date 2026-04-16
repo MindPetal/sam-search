@@ -1,0 +1,46 @@
+[project]
+name = "sam-search"
+version = "1.0.0"
+description = "SAM.gov opportunity search and post to MS Teams"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "certifi>=14.05.14",
+    "python-dateutil>=2.5.3",
+    "pyyaml",
+    "setuptools>=21.0.0",
+    "six>=1.10",
+    "tzdata>=2024.1",
+    "urllib3>=1.15.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "pytest-mock",
+    "ruff",
+    "ty",
+    "yamllint",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+exclude = ["client/", "build/"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = ["E501"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["client", "search"]
+
+[tool.ty.environment]
+python-version = "3.13"
+
+[tool.ty.src]
+exclude = ["client/", "build/"]
+
+[tool.ty.rules]
+invalid-argument-type = "warn"
+not-subscriptable = "warn"

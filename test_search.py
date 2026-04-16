@@ -1,5 +1,5 @@
 """
-    Tests for search.py 
+Tests for search.py
 """
 
 from datetime import date
@@ -121,7 +121,7 @@ def test_format_results_one():
     items = [
         {
             "type": "TextBlock",
-            "text": f'**{date.today().strftime("%A, %m/%d/%Y")}.** 1 new record. Displaying 1.',
+            "text": f"**{date.today().strftime('%A, %m/%d/%Y')}.** 1 new record. Displaying 1.",
             "wrap": True,
         },
         {
@@ -180,7 +180,7 @@ def test_format_results():
     items = [
         {
             "type": "TextBlock",
-            "text": f'**{date.today().strftime("%A, %m/%d/%Y")}.** 2 new records. Displaying 1 to 2.',
+            "text": f"**{date.today().strftime('%A, %m/%d/%Y')}.** 2 new records. Displaying 1 to 2.",
             "wrap": True,
         },
         {
@@ -248,7 +248,7 @@ def test_process_search_less_40(mocker):
     items = [
         {
             "type": "TextBlock",
-            "text": f'**{date.today().strftime("%A, %m/%d/%Y")}.** 2 new records. Displaying 1 to 2.',
+            "text": f"**{date.today().strftime('%A, %m/%d/%Y')}.** 2 new records. Displaying 1 to 2.",
             "wrap": True,
         },
         {
@@ -312,7 +312,7 @@ def test_teams_post(mocker):
     items = [
         {
             "type": "TextBlock",
-            "text": f'**{date.today().strftime("%A, %m/%d/%Y")}.** 2 new records. Displaying 1 to 2.',
+            "text": f"**{date.today().strftime('%A, %m/%d/%Y')}.** 2 new records. Displaying 1 to 2.",
             "wrap": True,
         },
         {

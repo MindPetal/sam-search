@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# Ruff pre-commit hook - auto-formats staged Python files
+# Requires: uv installed, uv sync --dev run
+# Activate hook: git config core.hooksPath hooks
+
+# Get staged Python files
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '\.py$')
+
+if [ -z "$STAGED_FILES" ]; then
+    exit 0
+fi
+
+# Format staged Python files and show which ones changed
+echo "Running ruff format..."
+uv run ruff format $STAGED_FILES
+FORMATTED=$(git diff --name-only)
+if [ -n "$FORMATTED" ]; then
+    COUNT=$(echo "$FORMATTED" | wc -l | tr -d ' ')
+    echo "Reformatted $COUNT file(s):"
+    echo "$FORMATTED" | sed 's/^/  /'
+else
+    echo "All files already formatted."
+fi
+
+# Re-stage formatted files
+git add $STAGED_FILES
+
+exit 0
