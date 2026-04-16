@@ -14,21 +14,33 @@ More info on setting up Teams webhooks: [Create incoming webhooks with Workflows
 
 ## Local execution:
 
-- Python 3.13+ required.
-- Install:
-
+Python 3.13+ required. Install [uv](https://docs.astral.sh/uv/getting-started/installation/) (`brew install uv`) and sync dependencies:
 ```sh
-pip3 install . --use-pep517
+uv sync --dev
 ```
 
-- Tests:
-
+Lint:
 ```sh
-pytest test_search.py
+uv run ruff check .
+uv run ruff format --check .
 ```
 
-- Execute: pass sam api key, ms teams webhook url:
-
+Git hook (auto-formats Python files on commit):
 ```sh
-python3 search.py my-sam-api-key my-ms-webhook-url
+git config core.hooksPath hooks
+```
+
+Type check:
+```sh
+uv run ty check
+```
+
+Tests:
+```sh
+uv run pytest test_search.py
+```
+
+Execute: pass sam api key, ms teams webhook url:
+```sh
+uv run python3 search.py my-sam-api-key my-ms-webhook-url
 ```

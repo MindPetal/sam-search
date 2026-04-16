@@ -15,17 +15,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v6
+    - name: Install uv
+      uses: astral-sh/setup-uv@37802adc94f370d6bfd71619e3f0bf239e1f3b78 # v7
     - name: Set up Python
-      uses: actions/setup-python@v6
-      with:
-        python-version: '3.13'
-        cache: 'pip'
-    - name: pip package install
-      run: |
-        pip install . --use-pep517
-        pip install yamllint
+      run: uv python install 3.13
+    - name: Install dependencies
+      run: uv sync --locked
     - name: Run search
       env:
         SAM_API_KEY: ${{ secrets.SAM_API_KEY }}
         MS_URL: ${{ secrets.MS_URL }}
-      run: python3 search.py "$SAM_API_KEY" "$MS_URL"
+      run: uv run python3 search.py "$SAM_API_KEY" "$MS_URL"
