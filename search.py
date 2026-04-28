@@ -151,7 +151,7 @@ def format_results(raw_results: list[dict], config: dict, total: int) -> list:
             agency = format_agency(result["agency"], config["agencies"])
 
         content = (
-            f"{result['index']}. **{agency}:** [{result['title']}]({result['url']})"
+            f"{result['index']}\\. **{agency}:** [{result['title']}]({result['url']})"
         )
 
         content += f"\n\n- **Date:** {format_date(result['posted_date'])} | **Due:** {format_date(result['due_date'])} | "
