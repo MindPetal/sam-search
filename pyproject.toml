@@ -5,12 +5,12 @@ description = "SAM.gov opportunity search and post to MS Teams"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "certifi>=14.05.14",
+    "certifi>=2026.4.22",
     "python-dateutil>=2.5.3",
     "pyyaml",
     "setuptools>=21.0.0",
     "six>=1.10",
-    "tzdata>=2024.1",
+    "tzdata>=2026.2",
     "urllib3>=1.15.1",
 ]
 
