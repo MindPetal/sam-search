@@ -11,7 +11,7 @@ dependencies = [
     "setuptools>=21.0.0",
     "six>=1.10",
     "tzdata>=2024.1",
-    "urllib3>=1.15.1",
+    "urllib3>=2.7.0",
 ]
 
 [dependency-groups]
