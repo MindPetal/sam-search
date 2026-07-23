@@ -119,10 +119,19 @@ def build_textblock(content: str) -> dict:
     return {"type": "TextBlock", "text": content, "wrap": True}
 
 
-def format_results(raw_results: list[dict], config: dict, total: int) -> list:
-    # Format results strings
+def build_row(content: str, stripe_index: int) -> dict:
+    # Build a striped single-cell TableRow
+    return {
+        "type": "TableRow",
+        "style": "emphasis" if stripe_index % 2 else "default",
+        "cells": [
+            {"type": "TableCell", "items": [build_textblock(content)]},
+        ],
+    }
 
-    items = []
+
+def format_results(raw_results: list[dict], config: dict, total: int) -> list:
+    # Format results into a striped Adaptive Card table
 
     if raw_results[0]["index"] == 1:
         if total > 1:
@@ -142,26 +151,32 @@ def format_results(raw_results: list[dict], config: dict, total: int) -> list:
             f" Displaying {raw_results[0]['index']} to {raw_results[-1]['index']}."
         )
 
-    items += [build_textblock(header), build_textblock("")]
+    rows = []
 
-    for result in raw_results:
+    for stripe_index, result in enumerate(raw_results):
         agency = None
 
         if bool(result["agency"]):
             agency = format_agency(result["agency"], config["agencies"])
 
-        content = (
-            f"{result['index']}\\. **{agency}:** [{result['title']}]({result['url']})"
-        )
+        content = f"\u200b{result['index']}. **{agency}:** [{result['title']}]({result['url']})"
 
-        content += f"\n\n- **Date:** {format_date(result['posted_date'])} | **Due:** {format_date(result['due_date'])} | "
+        content += f"\n\n**Date:** {format_date(result['posted_date'])} | **Due:** {format_date(result['due_date'])} | "
 
         set_aside = format_set_aside(result["set_aside"], config["set_asides"])
         content += f"**Type:** {result['type']} | **Set Aside:** {set_aside} | **NAICS:** {result['naics']}"
 
-        items += [build_textblock(content), build_textblock("")]
+        rows.append(build_row(content, stripe_index))
 
-    return items
+    table = {
+        "type": "Table",
+        "columns": [{"width": 1}],
+        "firstRowAsHeaders": False,
+        "gridStyle": "default",
+        "rows": rows,
+    }
+
+    return [build_textblock(header), build_textblock(""), table]
 
 
 def process_search(
@@ -219,7 +234,7 @@ def teams_post(api_client: client.ApiClient, items: list[dict]) -> None:
                         "contentType": "application/vnd.microsoft.card.adaptive",
                         "content": {
                             "type": "AdaptiveCard",
-                            "version": "1.0",
+                            "version": "1.5",
                             "body": [{"type": "Container", "items": items}],
                             "msteams": {"width": "Full"},
                         },
