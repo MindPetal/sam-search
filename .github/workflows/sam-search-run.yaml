@@ -5,7 +5,7 @@ name: SAM-Search-Run
 on:
   workflow_dispatch:
   schedule:
-    - cron: '24 07 * * *'
+    - cron: '24 04 * * *'
       timezone: "America/New_York"
 
 permissions:
