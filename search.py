@@ -4,7 +4,7 @@ sam.gov opportunities API and post results to MS Teams.
 """
 
 import logging
-import sys
+import os
 import time
 from datetime import date, datetime, timedelta, timezone
 from itertools import zip_longest
@@ -269,7 +269,5 @@ def main(sam_api_key: str, ms_webhook_url: str) -> None:
         time.sleep(30)
 
 
-""" Read in sam_api_key, ms_webhook_url.
-"""
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2])
+    main(os.environ["SAM_API_KEY"], os.environ["MS_URL"])
