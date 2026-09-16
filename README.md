@@ -40,7 +40,9 @@ Tests:
 uv run pytest test_search.py
 ```
 
-Execute: pass sam api key, ms teams webhook url:
+Execute:
 ```sh
-uv run python3 search.py my-sam-api-key my-ms-webhook-url
+SAM_API_KEY='my-sam-api-key' \
+MS_URL='my-ms-webhook-url' \
+uv run python3 search.py
 ```
