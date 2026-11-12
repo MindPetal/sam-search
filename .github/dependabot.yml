@@ -5,6 +5,8 @@ updates:
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 10
+    cooldown:
+      default-days: 7
     groups:
       production-dependencies:
         patterns:
@@ -18,3 +20,5 @@ updates:
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 10
+    cooldown:
+      default-days: 7
