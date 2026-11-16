@@ -169,7 +169,7 @@ wheels = [
 [[package]]
 name = "sam-search"
 version = "1.0.0"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "certifi" },
     { name = "python-dateutil" },

@@ -1,6 +1,6 @@
 # Install Python dependencies, lint, run tests.
 
-name: SAM-Search-Build
+name: sam-search-build
 
 on:
   workflow_dispatch:
@@ -34,7 +34,7 @@ jobs:
     - name: Run ty type check
       run: uv run ty check
     - name: Run pytest unit tests
-      run: uv run pytest test_search.py
+      run: uv run pytest
     - name: Summary
       run: echo "### Summary :rocket:" >> $GITHUB_STEP_SUMMARY
 
