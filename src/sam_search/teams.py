@@ -3,12 +3,10 @@ Build MS Teams Adaptive Card content and post it to a Teams webhook.
 
 Each chat destination gets its own module with the same interface:
 format_results(records, config) -> one list of items per message, and
-post(webhook_url, items). Another destination, such as Slack, would be a
-sibling module.
+post(webhook_url, items).
 """
 
 import logging
-from datetime import date
 
 import client
 from client.rest import ApiException
@@ -38,40 +36,13 @@ def build_row(content: str, stripe_index: int) -> dict:
 def format_message(raw_results: list[dict], config: dict, total: int) -> list:
     # Format one message's results into a striped Adaptive Card table
 
-    if raw_results[0]["index"] == 1:
-        if total > 1:
-            header = (
-                f"**{date.today().strftime('%A, %m/%d/%Y')}.** {total} new records."
-                f" Displaying {raw_results[0]['index']} to {raw_results[-1]['index']}."
-            )
-        elif total == 1:
-            header = (
-                f"**{date.today().strftime('%A, %m/%d/%Y')}.** {total} new record."
-                f" Displaying {raw_results[0]['index']}."
-            )
-
-    else:
-        header = (
-            f"**{date.today().strftime('%A, %m/%d/%Y')} continued.**"
-            f" Displaying {raw_results[0]['index']} to {raw_results[-1]['index']}."
-        )
-
-    rows = []
-
-    for stripe_index, result in enumerate(raw_results):
-        agency = None
-
-        if bool(result["agency"]):
-            agency = results.format_agency(result["agency"], config["agencies"])
-
-        content = f"\u200b{result['index']}. **{agency}:** [{result['title']}]({result['url']})"
-
-        content += f"\n\n**Date:** {results.format_date(result['posted_date'])} | **Due:** {results.format_date(result['due_date'])} | "
-
-        set_aside = results.format_set_aside(result["set_aside"], config["set_asides"])
-        content += f"**Type:** {result['type']} | **Set Aside:** {set_aside} | **NAICS:** {result['naics']}"
-
-        rows.append(build_row(content, stripe_index))
+    header = results.header_text(
+        raw_results[0]["index"], raw_results[-1]["index"], total
+    )
+    rows = [
+        build_row(results.record_content(result, config), stripe_index)
+        for stripe_index, result in enumerate(raw_results)
+    ]
 
     table = {
         "type": "Table",

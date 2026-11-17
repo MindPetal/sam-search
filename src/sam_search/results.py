@@ -1,8 +1,9 @@
 """
-Turn SAM.gov opportunity fields into display values.
+Turn SAM.gov opportunity fields into display values and the Markdown text
+shared by every chat channel.
 """
 
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from zoneinfo import ZoneInfo
 
 
@@ -67,3 +68,37 @@ def format_set_aside(set_aside: str | None, set_asides: list[dict]) -> str | Non
             set_aside = match["desc"]
 
     return set_aside
+
+
+def header_text(first_index: int, last_index: int, total: int) -> str:
+    # Message header: record count and which records this message displays
+    today = date.today().strftime("%A, %m/%d/%Y")
+
+    if first_index != 1:
+        return f"**{today} continued.** Displaying {first_index} to {last_index}."
+
+    if total == 1:
+        return f"**{today}.** {total} new record. Displaying {first_index}."
+
+    return (
+        f"**{today}.** {total} new records. Displaying {first_index} to {last_index}."
+    )
+
+
+def record_content(result: dict, config: dict) -> str:
+    # Markdown for one opportunity: agency and linked title, then its details
+    agency = None
+
+    if bool(result["agency"]):
+        agency = format_agency(result["agency"], config["agencies"])
+
+    content = (
+        f"\u200b{result['index']}. **{agency}:** [{result['title']}]({result['url']})"
+    )
+
+    content += f"\n\n**Date:** {format_date(result['posted_date'])} | **Due:** {format_date(result['due_date'])} | "
+
+    set_aside = format_set_aside(result["set_aside"], config["set_asides"])
+    content += f"**Type:** {result['type']} | **Set Aside:** {set_aside} | **NAICS:** {result['naics']}"
+
+    return content

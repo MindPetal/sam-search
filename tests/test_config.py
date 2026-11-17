@@ -29,12 +29,36 @@ def test_settings_from_env(tmp_path):
     )
 
 
-def test_settings_from_env_requires_secrets(tmp_path):
+def test_settings_from_env_requires_api_key(tmp_path):
     config_path = tmp_path / "config.yaml"
     config_path.write_text("from_days_back: 1\n")
 
     with pytest.raises(KeyError):
-        Settings.from_env({"SAM_API_KEY": "key"}, config_path=str(config_path))
+        Settings.from_env(
+            {"MS_URL": "https://webhook.example.com"}, config_path=str(config_path)
+        )
+
+
+@pytest.mark.parametrize("env", [{}, {"MS_URL": "", "SLACK_URL": " "}])
+def test_settings_from_env_requires_a_channel(tmp_path, env):
+    config_path = tmp_path / "config.yaml"
+    config_path.write_text("from_days_back: 1\n")
+
+    with pytest.raises(ValueError, match="MS_URL, SLACK_URL"):
+        Settings.from_env({"SAM_API_KEY": "key", **env}, config_path=str(config_path))
+
+
+def test_settings_from_env_slack_only(tmp_path):
+    config_path = tmp_path / "config.yaml"
+    config_path.write_text("from_days_back: 1\n")
+
+    settings = Settings.from_env(
+        {"SAM_API_KEY": "key", "SLACK_URL": " https://hooks.slack.com/services/T/B/X "},
+        config_path=str(config_path),
+    )
+
+    assert settings.ms_webhook_url == ""
+    assert settings.slack_webhook_url == "https://hooks.slack.com/services/T/B/X"
 
 
 def test_repo_config_loads():
