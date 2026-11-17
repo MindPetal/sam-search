@@ -2,6 +2,10 @@
 Tests for results.py
 """
 
+from datetime import date
+
+from conftest import make_record
+
 from sam_search import results
 
 
@@ -55,3 +59,27 @@ def test_format_set_aside_no():
     set_asides = [{"code": "SBA", "desc": "Total SB"}]
 
     assert results.format_set_aside(None, set_asides) is None
+
+
+def test_header_text():
+    today = date.today().strftime("%A, %m/%d/%Y")
+
+    assert results.header_text(1, 1, 1) == f"**{today}.** 1 new record. Displaying 1."
+    assert (
+        results.header_text(1, 40, 85)
+        == f"**{today}.** 85 new records. Displaying 1 to 40."
+    )
+    assert (
+        results.header_text(41, 80, 85)
+        == f"**{today} continued.** Displaying 41 to 80."
+    )
+
+
+def test_record_content(config):
+    record = {**make_record(1), "index": 1}
+
+    assert results.record_content(record, config) == (
+        "\u200b1. **Energy:** [Test title 1](https://sam.gov/opp/1/view)"
+        "\n\n**Date:** 02/25/2024 | **Due:** 03/12/2024 - 11:59PM EDT | "
+        "**Type:** Special Notice | **Set Aside:** Total SB | **NAICS:** 541511"
+    )

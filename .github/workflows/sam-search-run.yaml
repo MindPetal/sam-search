@@ -28,4 +28,5 @@ jobs:
       env:
         SAM_API_KEY: ${{ secrets.SAM_API_KEY }}
         MS_URL: ${{ secrets.MS_URL }}
+        SLACK_URL: ${{ secrets.SLACK_URL }}
       run: uv run sam-search
