@@ -1,7 +1,7 @@
 # SAM.gov opportunity search and post to a chat channel
 [![sam-search-build](https://github.com/MindPetal/sam-search/actions/workflows/sam-search-build.yaml/badge.svg)](https://github.com/MindPetal/sam-search/actions/workflows/sam-search-build.yaml) [![sam-search-run](https://github.com/MindPetal/sam-search/actions/workflows/sam-search-run.yaml/badge.svg)](https://github.com/MindPetal/sam-search/actions/workflows/sam-search-run.yaml)
 
-Python client for the sam.gov opportunities API: https://open.gsa.gov/api/get-opportunities-public-api/. Searches by a list of NAICS codes and from-date, defaulting to a list of opps from the past day.
+GitHub Actions workflows and Python client for the sam.gov opportunities API: https://open.gsa.gov/api/get-opportunities-public-api/. Searches by a list of NAICS codes and from-date, defaulting to a list of opps from the past day.
 
 [sam-search-run](https://github.com/MindPetal/sam-search/actions/workflows/sam-search-run.yaml) pulls search results for specified NAICS each day and posts them to MS Teams, Slack, or both. Search config data is stored in [config.yaml](/config.yaml). To run this you must obtain and configure as actions repo secrets:
 
