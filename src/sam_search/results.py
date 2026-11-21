@@ -102,3 +102,13 @@ def record_content(result: dict, config: dict) -> str:
     content += f"**Type:** {result['type']} | **Set Aside:** {set_aside} | **NAICS:** {result['naics']}"
 
     return content
+
+
+def sam_errors(errors: list[dict]) -> str:
+    lines = dict.fromkeys(
+        "⚠️ There was an error calling the SAM.gov API during the workflow run."
+        f" HTTP {error['status']} received: {error['message']}."
+        for error in errors
+    )
+
+    return "\n\n".join(lines)
