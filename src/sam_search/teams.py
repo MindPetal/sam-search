@@ -2,7 +2,7 @@
 Build MS Teams Adaptive Card content and post it to a Teams webhook.
 
 Each chat destination gets its own module with the same interface:
-format_results(records, config) -> one list of items per message, and
+format_results(records, config, errors) -> one list of items per message, and
 post(webhook_url, items).
 """
 
@@ -55,8 +55,11 @@ def format_message(raw_results: list[dict], config: dict, total: int) -> list:
     return [build_textblock(header), build_textblock(""), table]
 
 
-def format_results(records: list[dict], config: dict) -> list[list[dict]]:
-    # Format results into one list of card items per Teams message
+def format_results(
+    records: list[dict], config: dict, errors: list[dict] | None = None
+) -> list[list[dict]]:
+    # Format results into one list of card items per Teams message, then a
+    # final message for any SAM.gov errors
     messages = []
     record_cnt = len(records)
 
@@ -64,6 +67,9 @@ def format_results(records: list[dict], config: dict) -> list[list[dict]]:
     for start in range(0, record_cnt, MAX_RECORDS_PER_MESSAGE):
         chunk = records[start : start + MAX_RECORDS_PER_MESSAGE]
         messages.append(format_message(chunk, config, record_cnt))
+
+    if errors:
+        messages.append([build_textblock(results.sam_errors(errors))])
 
     return messages
 
